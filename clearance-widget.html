@@ -118,7 +118,7 @@ img{display:block;max-width:100%}
   <div class="r"><span class="hph">(03) 8692 0032</span><a class="btn" href="#enq" onclick="pick('')">ENQUIRE NOW</a></div>
 </div></header>
 
-<section class="hero" style="background-image:url('https://piyushdiwte22-crypto.github.io/wonderland-rv-landing/assets/landscape-1.jpg')"><div class="wrap">
+<section class="hero" style="background-image:url('https://wonderlandrv.com.au/wp-content/uploads/2026/06/clearance-hero.jpg')"><div class="wrap">
   <div class="ey">2025 STOCK CLEARANCE</div>
   <h1>BRAND-NEW 2025 VANS. CLEARANCE PRICES. WHILE THEY LAST.</h1>
   <p>We're clearing the last of our 2025 stock to make room for the 2026 builds. Five brand-new vans, full factory warranty, at drive-away clearance prices. Once they're gone, they're gone.</p>
@@ -211,7 +211,7 @@ img{display:block;max-width:100%}
 <iframe name="ac_sink" style="display:none" title="ac"></iframe>
 
 <script>
-var IB='https://www.outboundrvs.com.au/images/61331934/WONDERLANDRV/';
+var WPB='https://wonderlandrv.com.au/wp-content/uploads/2026/06/';var PICS={solara:[1,2,3,4,5,6,7,8],a1806:[1,2,3,4,5,6,7,8],a21:[1,2,3,4,5,6,7,8],a1906:[1,2,3,5,6,7,8],hornet:[1,2,3,4,5,6,7,8]};
 var PHOTOS=8;
 var VANS=[
  {k:'solara',n:'Solara 2-Bunk Off-Road',y:'2025 · off-road, 2 bunks',now:'$189,999',base:'Solara2Bunk/794',specs:[['ti-ruler-2','8.8m overall length'],['ti-weight','ATM 3500kg (up to 4500kg)'],['ti-battery-3','Lithium + solar, off-grid'],['ti-bed','2 bunks — family layout']]},
@@ -220,16 +220,16 @@ var VANS=[
  {k:'a1906',n:'Amaroo 1906 Mid-Door Cafe',y:'2025 · mid-door café',now:'$144,999',base:'AMAROO/745',specs:[['ti-ruler-2','8.3m overall length'],['ti-weight','ATM 3500kg'],['ti-battery-3','Lithium + solar'],['ti-coffee','Mid-door café layout']]},
  {k:'hornet',n:'Hornet Rear Club Lounge',y:'2025 · couples, rear lounge',now:'$144,999',base:'HORNETREARCLUBLOUNGE/602',specs:[['ti-mountain','Off-road tourer'],['ti-battery-3','Lithium + solar'],['ti-sofa','Rear club lounge'],['ti-users','Couples layout']]}
 ];
-function img(base,i,w){return IB+base+'/'+i+'?w='+(w||1000);}
+function img(k,i){return WPB+'clearance-'+k+'-'+i+'.jpg';}
 function el(id){return document.getElementById(id);}
 function build(){var h='';VANS.forEach(function(v){h+='<div class="card" onclick="openVan(\''+v.k+'\')">'+
- '<div class="cph"><img loading="lazy" alt="'+v.n+'" src="'+img(v.base,1,600)+'"><span class="tag" style="position:absolute;top:10px;left:10px">1 ONLY</span></div>'+
+ '<div class="cph"><img loading="lazy" alt="'+v.n+'" src="'+img(v.k,PICS[v.k][0])+'"><span class="tag" style="position:absolute;top:10px;left:10px">1 ONLY</span></div>'+
  '<div class="cbd"><div class="cn">'+v.n+'</div><div class="cy">'+v.y+'</div>'+
  '<div><span class="was">Was $XXX,XXX</span></div><div><span class="now">'+v.now+'</span> <small style="color:#8a8a8a">drive away</small></div><div class="sv">Save $XX,XXX</div></div>'+
  '<div class="vmore">VIEW PHOTOS &amp; DETAILS <i class="ti ti-arrow-right"></i></div></div>';});el('track').innerHTML=h;}
 function openVan(k){var v=VANS.filter(function(x){return x.k===k})[0];if(!v)return;
- var g='';for(var i=1;i<=PHOTOS;i++){g+='<div class="slide"><img loading="lazy" alt="'+v.n+' photo '+i+'" src="'+img(v.base,i,1000)+'"></div>';}
- el('gal').innerHTML=g;el('gal').scrollLeft=0;el('galn').textContent='1 / '+PHOTOS;
+ var ps=PICS[v.k];window.GL=ps.length;var g='';for(var i=0;i<ps.length;i++){g+='<div class="slide"><img loading="lazy" alt="'+v.n+' photo '+(i+1)+'" src="'+img(v.k,ps[i])+'"></div>';}
+ el('gal').innerHTML=g;el('gal').scrollLeft=0;el('galn').textContent='1 / '+window.GL;
  el('mn').textContent=v.n;el('my').textContent=v.y;el('mw').textContent='Was $XXX,XXX';el('mp').textContent=v.now;el('ms').textContent='Save $XX,XXX';
  var s='';v.specs.forEach(function(p){s+='<div class="spec"><i class="ti '+p[0]+'"></i>'+p[1]+'</div>';});el('mspecs').innerHTML=s;
  el('menq').onclick=function(){closeVan();pick(v.n);};
@@ -244,7 +244,7 @@ function submitEnq(e){
  /* PREVIEW MODE: does not post to ActiveCampaign. To go live, delete the next line. */
  el('form').style.display='none';el('thanks').style.display='block';el('thanks').scrollIntoView({behavior:'smooth'});return true;
 }
-el('gal').addEventListener('scroll',function(){var t=el('gal');var i=Math.round(t.scrollLeft/t.clientWidth)+1;el('galn').textContent=Math.min(PHOTOS,Math.max(1,i))+' / '+PHOTOS;});
+el('gal').addEventListener('scroll',function(){var t=el('gal');var i=Math.round(t.scrollLeft/t.clientWidth)+1;el('galn').textContent=Math.min(window.GL,Math.max(1,i))+' / '+window.GL;});
 (function(){var t=el('track'),bar=el('bar'),th=el('thumb');function u(){var mx=t.scrollWidth-t.clientWidth;var bw=bar.clientWidth;var tw=Math.max(42,(t.clientWidth/t.scrollWidth)*bw);th.style.width=tw+'px';var r=mx>0?t.scrollLeft/mx:0;th.style.left=(r*(bw-tw))+'px';}t.addEventListener('scroll',u);setTimeout(u,80);window.addEventListener('resize',u);
  var dg=false,sx=0,sl=0;th.addEventListener('pointerdown',function(e){dg=true;sx=e.clientX;sl=th.offsetLeft;try{th.setPointerCapture(e.pointerId)}catch(x){}});th.addEventListener('pointermove',function(e){if(!dg)return;var bw=bar.clientWidth,tw=th.clientWidth;var nl=Math.max(0,Math.min(bw-tw,sl+(e.clientX-sx)));var r=(bw-tw)>0?nl/(bw-tw):0;t.scrollLeft=r*(t.scrollWidth-t.clientWidth);});th.addEventListener('pointerup',function(){dg=false;});
  bar.addEventListener('click',function(e){if(e.target===th)return;var rc=bar.getBoundingClientRect();var r=(e.clientX-rc.left)/rc.width;t.scrollLeft=r*(t.scrollWidth-t.clientWidth);});})();
