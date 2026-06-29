@@ -218,7 +218,7 @@
         </div>
         <div class="vid"><iframe src="https://www.youtube.com/embed/Yk4vxl-iUcU" title="Hornet walkthrough" allowfullscreen></iframe></div>
         <div class="van-actions">
-          <a href="#enquire" class="btn btn-onlight">ENQUIRE ON THE HORNET</a>
+          <a href="#enquire" class="btn btn-onlight" onclick="wlPick('Hornet - rear club lounge')">ENQUIRE ON THE HORNET</a>
           <a href="https://youtube.com/shorts/kx4gdJNQkqw" class="textlink">60-second tour</a>
         </div>
       </div>
@@ -238,7 +238,7 @@
         </div>
         <div class="vid"><iframe src="https://www.youtube.com/embed/x0NoTZonq8Q" title="Solara walkthrough" allowfullscreen></iframe></div>
         <div class="van-actions">
-          <a href="#enquire" class="btn btn-onlight">ENQUIRE ON THE SOLARA</a>
+          <a href="#enquire" class="btn btn-onlight" onclick="wlPick('Solara - COTY 2026 winner')">ENQUIRE ON THE SOLARA</a>
           <a href="https://youtube.com/shorts/GnmTMaLi5uU" class="textlink">60-second tour</a>
         </div>
       </div>
@@ -259,7 +259,7 @@
         </div>
         <div class="van-actions">
           <a href="https://www.outboundrvs.com.au/stock/2023-wonderlandrv-xtr----564167" class="btn btn-onlight">VIEW THIS VAN</a>
-          <a href="#enquire" class="textlink">Ask a question</a>
+          <a href="#enquire" class="textlink" onclick="wlPick('XTR - 2023 ex-stock')">Ask a question</a>
         </div>
       </div>
     </div>
@@ -284,24 +284,45 @@
       <h2>TELL US WHICH VAN. WE'LL GET STRAIGHT BACK TO YOU.</h2>
       <p>Pricing, availability and a no-pressure walkthrough, in person or over video. We usually reply the same day.</p>
     </div>
-    <form class="formgrid" onsubmit="event.preventDefault();this.innerHTML='<div style=\'text-align:center;padding:50px 10px\'><div style=\'font-family:var(--display);font-weight:900;font-size:28px;color:var(--ink);margin-bottom:10px\'>THANKS, WE&#39;VE GOT IT.</div><p style=\'color:var(--body)\'>The team will be in touch shortly with pricing and availability.</p></div>';">
+    <form id="wlform" class="formgrid" method="POST" action="https://wonderlandrv.activehosted.com/proc.php" target="ac_sink" onsubmit="return wlSubmit(this)">
+      <input type="hidden" name="u" value="47"><input type="hidden" name="f" value="47">
+      <input type="hidden" name="s"><input type="hidden" name="c" value="0">
+      <input type="hidden" name="m" value="0"><input type="hidden" name="act" value="sub">
+      <input type="hidden" name="v" value="2">
+      <input type="hidden" name="or" value="86f68712-ed10-4e64-8760-86ac3026dfc6">
+      <input type="hidden" name="field[86]" value="">
       <div class="frow">
-        <div class="field"><label>First name</label><input type="text" placeholder="Your name" required></div>
-        <div class="field"><label>Mobile</label><input type="tel" placeholder="04XX XXX XXX" required></div>
+        <div class="field"><label>First name</label><input type="text" name="firstname" placeholder="Your name" required></div>
+        <div class="field"><label>Last name</label><input type="text" name="lastname" placeholder="Surname" required></div>
       </div>
-      <div class="field"><label>Email</label><input type="email" placeholder="you@email.com" required></div>
-      <div class="field"><label>Which van are you interested in?</label>
-        <select required>
-          <option value="" disabled selected>Choose a van</option>
-          <option>Hornet — rear club lounge</option>
-          <option>Solara — COTY 2026 winner</option>
-          <option>XTR — 2023 ex-stock</option>
-          <option>Not sure yet, help me choose</option>
+      <div class="frow">
+        <div class="field"><label>Mobile</label><input type="tel" name="phone" placeholder="0412 345 678" required></div>
+        <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+      </div>
+      <div class="field"><label>State</label>
+        <select name="field[27]" required>
+          <option value="" disabled selected>Choose your state</option>
+          <option value="Victoria">Victoria</option>
+          <option value="New South Wales / ACT">New South Wales / ACT</option>
+          <option value="Queensland">Queensland</option>
+          <option value="South Australia">South Australia</option>
+          <option value="Western Australia">Western Australia</option>
+          <option value="Northern Territory">Northern Territory</option>
+          <option value="Tasmania">Tasmania</option>
+          <option value="New Zealand">New Zealand</option>
         </select>
       </div>
-      <div class="field"><label>Anything you'd like us to know? (optional)</label><textarea placeholder="Towing vehicle, timeframe, must-haves..."></textarea></div>
+      <div class="field"><label>Which van are you interested in?</label>
+        <select id="vanselect" name="_van" required>
+          <option value="" disabled selected>Choose a van</option>
+          <option value="Hornet - rear club lounge">Hornet — rear club lounge</option>
+          <option value="Solara - COTY 2026 winner">Solara — COTY 2026 winner</option>
+          <option value="XTR - 2023 ex-stock">XTR — 2023 ex-stock</option>
+          <option value="Not sure yet">Not sure yet, help me choose</option>
+        </select>
+      </div>
       <div class="submitwrap"><button type="submit" class="submit">GET PRICING AND AVAILABILITY</button></div>
-      <p class="reassure">No spam. Your details go straight to the Wonderland RV team.</p>
+      <p class="reassure">No spam. Your details go straight to the Wonderland RV team and your nearest dealer.</p>
     </form>
   </div>
 </section>
@@ -335,6 +356,25 @@
   <a href="tel:0386920032" class="m-call">CALL</a>
   <a href="#enquire" class="m-enq">BOOK A WALKTHROUGH</a>
 </div>
+
+<iframe name="ac_sink" title="submission target" style="display:none;width:0;height:0;border:0" aria-hidden="true"></iframe>
+<script>
+function wlPick(v){var s=document.getElementById('vanselect');if(s){s.value=v;}}
+function wlSubmit(form){
+  var ph=(form.elements['phone'].value||'').replace(/[^0-9+]/g,'');
+  if(/^0\d{9}$/.test(ph)){ph='+61'+ph.slice(1);}
+  else if(/^61\d{9}$/.test(ph)){ph='+'+ph;}
+  else if(/^4\d{8}$/.test(ph)){ph='+61'+ph;}
+  form.elements['phone'].value=ph;
+  var src=new URLSearchParams(location.search).get('ad_source');
+  if(!src){var v=form.elements['_van']?form.elements['_van'].value:'';src=(v||'General enquiry')+' (LP Direct)';}
+  form.elements['field[86]'].value=src;
+  try{if(window.fbq){fbq('track','Lead');}}catch(e){}
+  try{if(window.gtag&&window.WL_GADS){gtag('event','conversion',{send_to:window.WL_GADS});}}catch(e){}
+  setTimeout(function(){var c=document.getElementById('wlform');if(c){c.outerHTML='<div style="text-align:center;padding:60px 10px"><div style="font-family:var(--display);font-weight:900;font-size:30px;letter-spacing:-0.4px;color:var(--ink);margin-bottom:12px">THANKS, WE&#39;VE GOT IT.</div><p style="color:var(--body)">Your enquiry is on its way to the Wonderland RV team and your nearest dealer. Expect a call back shortly.</p></div>';}},500);
+  return true;
+}
+</script>
 
 </body>
 </html>
