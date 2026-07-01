@@ -241,7 +241,7 @@ function renderSel(n){var box=el('fsel');if(!box)return;if(!n){box.innerHTML='<d
 function pick(n){var s=el('van');if(s&&n){for(var i=0;i<s.options.length;i++){if(s.options[i].text===n){s.selectedIndex=i;break;}}}renderSel(n);var f=document.getElementById('enq');if(f)f.scrollIntoView({behavior:'smooth'});}
 function submitEnq(e){
  var phone=el('phone');var p=(phone.value||'').replace(/[^0-9+]/g,'');if(/^0\d{9}$/.test(p)){p='+61'+p.slice(1);}phone.value=p;
- var params=new URLSearchParams(location.search);var src=(params.get('ad_source')||params.get('utm_source')||params.get('platform')||'');var plat=/meta|facebook|fb|insta/i.test(src)?'Meta Ad':(/google|adwords|gads/i.test(src)?'Google Ad':(src?src:'LP Direct'));var van=el('van').value;var vo=VANS.filter(function(x){return x.n===van;})[0];var wl=(vo&&vo.wl)?(' ['+vo.wl+']'):'';var interest=van?('Interested in: '+van+wl):'General enquiry';var base='Stock Clearance - '+interest;
+ var params=new URLSearchParams(location.search);var src=(params.get('ad_source')||params.get('utm_source')||params.get('platform')||'');var plat=/meta|facebook|fb|insta/i.test(src)?'Meta Ad':(/google|adwords|gads/i.test(src)?'Google Ad':(src?src:(params.get('fbclid')?'Meta Ad':((params.get('gclid')||params.get('gclsrc'))?'Google Ad':'LP Direct'))));var van=el('van').value;var vo=VANS.filter(function(x){return x.n===van;})[0];var wl=(vo&&vo.wl)?(' ['+vo.wl+']'):'';var interest=van?('Interested in: '+van+wl):'General enquiry';var base='Stock Clearance - '+interest;
  el('adsrc').value=base+' ('+plat+')';
  /* PREVIEW MODE: does not post to ActiveCampaign. To go live, delete the next line. */
  el('form').style.display='none';el('thanks').style.display='block';el('thanks').scrollIntoView({behavior:'smooth'});return true;
