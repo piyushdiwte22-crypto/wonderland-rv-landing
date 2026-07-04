@@ -164,7 +164,7 @@ img{display:block;max-width:100%}
       <input type="hidden" name="act" value="sub"><input type="hidden" name="v" value="2">
       <input type="hidden" name="or" value="86f68712-ed10-4e64-8760-86ac3026dfc6">
       <input type="hidden" name="field[86]" id="adsrc" value="">
-      <div class="row2"><div class="fld"><label>First name</label><input name="firstname" autocomplete="given-name" required placeholder="Jane"></div><div class="fld"><label>Last name</label><input name="lastname" autocomplete="family-name" required placeholder="Smith"></div></div>
+      <div class="fld"><label>Full name</label><input id="cl_fullname" autocomplete="name" required placeholder="Jane Smith"><input type="hidden" name="firstname"><input type="hidden" name="lastname"></div>
       <div class="fld"><label>Email</label><input type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" required placeholder="jane@email.com"></div>
       <div class="fld"><label>Phone</label><input type="tel" inputmode="tel" autocomplete="tel" name="phone" id="phone" required placeholder="0412 345 678"></div>
       <div class="row2 row2-sel">
@@ -172,7 +172,7 @@ img{display:block;max-width:100%}
         <div class="fld"><label>Van you're after</label><select id="van" onchange="renderSel(this.value)"><option value="">Not sure yet</option><option>Amaroo 1806EW 2-Bunk</option><option>Amaroo 21ft Large Ensuite</option><option>Amaroo 1906 Mid-Door Cafe</option><option>Hornet Rear Club Lounge</option><option>Amaroo 22ft Rear Club</option><option>Amaroo 1906 Couple</option><option>XTR 21ft Double Bunk King</option><option>Amaroo 21ft Couples XL Ensuite</option></select></div>
       </div>
       <button class="btn" type="submit" style="width:100%;margin-top:10px;padding:18px">ENQUIRE NOW</button>
-      <p class="safe">Your details are safe. No spam, no pressure.</p>
+      <p class="safe">Your details are safe. No spam, no pressure. Read our <a href="/privacy-policy/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Privacy Policy</a>.</p>
     </form>
     <div class="thanks" id="thanks"><i class="ti ti-circle-check"></i><h3 class="av" style="font-size:24px;margin:14px 0 10px">THANKS, WE'VE GOT YOUR ENQUIRY</h3><p>Someone from our friendly sales team will be in touch within one business day to talk you through your clearance van. We're glad you reached out.</p></div>
   </div>
@@ -252,3 +252,217 @@ el('gal').addEventListener('scroll',function(){var t=el('gal');var i=Math.round(
 function fitT(){document.querySelectorAll('.stitle').forEach(function(h){h.style.fontSize='';var fs=parseFloat(getComputedStyle(h).fontSize);var g=0;while(h.scrollWidth>h.clientWidth+1&&fs>11&&g++<60){fs-=1;h.style.fontSize=fs+'px';}});}function fitTop(){var t=document.querySelector('.top');if(!t)return;t.style.fontSize='';var fs=parseFloat(getComputedStyle(t).fontSize);var gg=0;while(t.scrollWidth>t.clientWidth+1&&fs>12&&gg++<50){fs-=0.5;t.style.fontSize=fs+'px';}}function fitTr(){[].slice.call(document.querySelectorAll('.tr')).forEach(function(t){t.style.fontSize='';var fs=parseFloat(getComputedStyle(t).fontSize);var g2=0;while(t.scrollWidth>t.clientWidth+1&&fs>9&&g2++<40){fs-=0.5;t.style.fontSize=fs+'px';}});}function fitAll(){fitT();fitTop();fitTr();}window.addEventListener('resize',fitAll);if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fitAll);}setTimeout(fitAll,50);fitAll();renderSel('');(function(){var ms=document.querySelector('.msticky'),us=document.querySelector('.ustrip');if(ms){function onS(){var t=us?us.getBoundingClientRect().top:1e4;if(t<window.innerHeight*0.5){ms.classList.add('show');}else{ms.classList.remove('show');}}window.addEventListener('scroll',onS,{passive:true});window.addEventListener('resize',onS);onS();}})();build();
 (function(){var mq=window.matchMedia('(prefers-reduced-motion: reduce)');var pin=document.querySelector('.vanpin'),tk=el('track'),sec=el('vans');if(!pin||!tk||!sec)return;var st=pin.querySelector('.vanpin-sticky'),wrap=st?st.querySelector('.wrap'):null;var maxX=0,pinH=0,on=false,target=0,cur=0,raf=null;function en(){if(on)return;on=true;pin.classList.add('pinned');sec.style.padding='0';}function di(){if(!on)return;on=false;pin.classList.remove('pinned');pin.style.height='';sec.style.padding='';if(st){st.style.paddingTop='';st.style.boxSizing='';}if(wrap){wrap.style.transform='';}if(raf){cancelAnimationFrame(raf);raf=null;}target=cur=0;tk.scrollLeft=0;}function fit(){if(!st||!wrap)return;var hdr=document.querySelector('.hdr');var hh=hdr?hdr.getBoundingClientRect().bottom:0;if(hh<0)hh=0;st.style.boxSizing='border-box';st.style.paddingTop=hh+'px';wrap.style.transform='';wrap.style.transformOrigin='center center';var avail=window.innerHeight-hh-28;var need=wrap.scrollHeight;if(need>avail&&avail>0){var s=avail/need;if(s<0.55)s=0.55;wrap.style.transform='scale('+s+')';}}function calc(){if(mq.matches||window.innerWidth<768){di();return;}var mx=tk.scrollWidth-tk.clientWidth;if(mx<40){di();return;}en();maxX=mx;pinH=window.innerHeight+maxX;pin.style.height=pinH+'px';fit();}function loop(){var d=target-cur;if(d<0)d=-d;if(d<0.5){cur=target;tk.scrollLeft=cur;raf=null;return;}cur+=(target-cur)*0.12;tk.scrollLeft=cur;raf=requestAnimationFrame(loop);}function sc(){if(!on)return;var r=pin.getBoundingClientRect();var p=(-r.top)/(pinH-window.innerHeight);p=p<0?0:(p>1?1:p);target=p*maxX;if(!raf)raf=requestAnimationFrame(loop);}window.addEventListener('scroll',sc,{passive:true});window.addEventListener('resize',function(){calc();sc();});if(mq.addEventListener)mq.addEventListener('change',function(){calc();sc();});setTimeout(function(){calc();sc();},250);window.addEventListener('load',function(){calc();sc();});})();
 </script>
+<script>/*wizard*/
+(function(){try{
+var qs=new URLSearchParams(location.search);
+if(qs.get('classic')==='1'){return;}
+var f=document.getElementById('form');var fullEl=document.getElementById('cl_fullname');
+var phoneEl=document.getElementById('phone');var vanSel=document.getElementById('van');
+if(!f||!fullEl||!phoneEl||!vanSel){return;}
+var emailEl=f.querySelector('input[name=email]');
+var stateEl=f.querySelector('select[name="field[27]"]');
+if(!emailEl||!stateEl){return;}
+var css='#wiz{position:fixed;inset:0;z-index:200;display:none;background:rgba(20,14,9,.82);overflow:auto;padding:24px}'
++'#wiz.on{display:flex}'
++'.wz-box{background:#fff;max-width:560px;width:100%;margin:auto;position:relative;padding:44px 34px 32px;border-top:4px solid var(--obtn)}'
++'.wz-x{position:absolute;top:12px;right:12px;width:44px;height:44px;background:var(--ink);color:#fff;border:0;cursor:pointer;font-size:22px;line-height:1;font-family:Arial,sans-serif}'
++'.wz-x:hover,.wz-x:focus{background:var(--obtn)}'
++'.wz-prog{font-family:\'aviano-sans\',Arial,sans-serif;font-weight:500;font-size:11px;letter-spacing:1.5px;color:#767370}'
++'.wz-dots{margin:7px 0 14px}.wz-dots span{display:inline-block;width:26px;height:3px;background:#e6e2da;margin-right:5px}.wz-dots span.on{background:var(--obtn)}'
++'.wz-h{font-family:\'aviano-sans\',Arial,sans-serif;font-weight:500;font-size:clamp(21px,5vw,29px);line-height:1.1;color:var(--ink);margin:0 0 12px}'
++'.wz-p{font-family:\'Gordita\',Arial,sans-serif;font-weight:400;font-size:17px;line-height:26px;color:var(--body);margin:0 0 6px}'
++'.wz-save{font-family:\'aviano-sans\',Arial,sans-serif;font-weight:500;font-size:24px;color:var(--obtn);margin:8px 0 6px}'
++'.wz-lab{display:block;font-family:\'Gordita\',Arial,sans-serif;font-size:15px;color:var(--lab);margin:18px 0 0}'
++'.wz-in{width:100%;font-family:\'Gordita\',Arial,sans-serif;font-size:18px;color:var(--ink);padding:13px 2px;border:0;border-bottom:2px solid #d8d3cb;background:transparent;outline:none;border-radius:0;-webkit-appearance:none;appearance:none}'
++'.wz-in:focus{border-bottom-color:var(--obtn)}'
++'select.wz-in{cursor:pointer}'
++'.wz-err{font-family:\'Gordita\',Arial,sans-serif;color:#a33;font-size:14px;margin-top:8px;min-height:18px}'
++'.wz-btn{width:100%;margin-top:18px;padding:17px 26px!important}'
++'.wz-btn:disabled{opacity:.65;cursor:default}'
++'.wz-chips{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}'
++'.wz-chip{min-height:54px;font-family:\'Gordita\',Arial,sans-serif;font-size:16px;border:2px solid #d8d3cb;background:#fff;color:var(--ink);cursor:pointer;padding:8px 10px;text-align:center}'
++'.wz-chip:hover,.wz-chip:focus{border-color:var(--obtn)}'
++'.wz-chip.on{background:var(--obtn);border-color:var(--obtn);color:#fff}'
++'.wz-back{background:none;border:0;cursor:pointer;font-family:\'Gordita\',Arial,sans-serif;font-size:15px;color:#595959;text-decoration:underline;margin-top:18px;padding:6px 0}'
++'.wz-note{font-family:\'Gordita\',Arial,sans-serif;font-size:14px;color:#595959;margin-top:14px}'
++'.wz-note a{color:inherit;text-decoration:underline}'
++'.wz-alt{background:none;border:0;cursor:pointer;font-family:\'Gordita\',Arial,sans-serif;font-size:15px;color:#595959;text-decoration:underline;padding:4px 0}'
++'.wz-tick{font-size:58px;color:var(--obtn)}'
++'.wz-center{text-align:center}'
++'.wz-start{background:#fff;border:1px solid var(--o);padding:26px 22px;text-align:center;margin-top:18px}'
++'.wz-start .wz-h{font-size:20px}'
++'@media(max-width:619px){#wiz{padding:0}.wz-box{max-width:none;min-height:100%;padding:60px 22px 30px}}';
+var sty=document.createElement('style');sty.textContent=css;document.head.appendChild(sty);
+var MAXSV=(function(){var m=0,s='$33,415';try{if(typeof VANS!=='undefined'){for(var i0=0;i0<VANS.length;i0++){var n0=parseInt(String(VANS[i0].sv||'').replace(/[^0-9]/g,''),10)||0;if(n0>m){m=n0;s=VANS[i0].sv;}}}}catch(e){}return s;})();
+function vinfo(n){if(!n||typeof VANS==='undefined')return null;for(var i=0;i<VANS.length;i++){if(VANS[i].n===n)return VANS[i];}return null;}
+function dl(ev,x){try{window.dataLayer=window.dataLayer||[];var o={event:ev};if(x){for(var k in x){o[k]=x[k];}}window.dataLayer.push(o);}catch(e){}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function g(id){return document.getElementById(id);}
+var d={van:vanSel.value||'',state:'',name:'',phone:'',email:''},step=1,isOpen=false,isDone=false,useClassic=false;
+var histOn=false,popGuard=false,confettiDone=false;
+var ov=document.createElement('div');ov.id='wiz';ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label','Clearance enquiry');
+ov.innerHTML='<div class="wz-box"><button type="button" class="wz-x" aria-label="Close">&#215;</button><div class="wz-bd"></div></div>';
+document.body.appendChild(ov);
+var bd=ov.querySelector('.wz-bd');
+ov.querySelector('.wz-x').addEventListener('click',function(){closeWiz(false);});
+ov.addEventListener('click',function(e){if(e.target===ov){closeWiz(false);}});
+document.addEventListener('keydown',function(e){
+ if(!isOpen){return;}
+ if(e.key==='Escape'){closeWiz(false);return;}
+ if(e.key==='Tab'){var fo=ov.querySelectorAll('button,input,select,a[href]');if(fo.length){var f1=fo[0],f2=fo[fo.length-1];if(e.shiftKey&&document.activeElement===f1){e.preventDefault();f2.focus();}else if(!e.shiftKey&&document.activeElement===f2){e.preventDefault();f1.focus();}}}
+});
+function prog(n){var dots='';for(var i=1;i<=5;i++){dots+='<span'+(i<=n?' class="on"':'')+'></span>';}return '<div class="wz-prog">STEP '+n+' OF 5</div><div class="wz-dots">'+dots+'</div>';}
+function first(){return (d.name||'').trim().split(/\s+/)[0]||'';}
+function back(){return step>1?'<div><button type="button" class="wz-back" id="wz-bk">&#8249; Back</button></div>':'';}
+function render(){
+ var h='';
+ if(step===1){
+  var v=vinfo(d.van);
+  h+=prog(1);
+  if(v){
+   h+='<div class="wz-h">YOU\'VE PICKED THE '+esc(v.n).toUpperCase()+'</div>';
+   if(v.sv){h+='<div class="wz-save">You save '+esc(v.sv)+'</div>';}
+   h+='<div class="wz-p">'+(v.was?'Was '+esc(v.was)+', now ':'')+esc(v.now)+' drive away. Only one left. Want to go ahead?</div>';
+   h+='<button type="button" class="btn wz-btn" id="wz-go">YES, LET\'S GO</button>';
+   h+='<div class="wz-note">This is an enquiry, not a commitment. <button type="button" class="wz-alt" id="wz-chg">Pick a different van</button></div>';
+  }else{
+   h+='<div class="wz-h">SAVE UP TO '+esc(MAXSV)+'</div>';
+   h+='<div class="wz-p">Brand-new 2025 vans at drive-away clearance prices across VIC, WA, NSW and QLD. Know which one you want?</div>';
+   h+='<label class="wz-lab" for="wz-van">Van you\'re after (optional)</label><select class="wz-in" id="wz-van"></select>';
+   h+='<button type="button" class="btn wz-btn" id="wz-go">LET\'S GO</button>';
+   h+='<div class="wz-note">This is an enquiry, not a commitment.</div>';
+  }
+ }else if(step===2){
+  h+=prog(2)+'<div class="wz-h">WHERE ARE YOU BASED?</div><div class="wz-p">So the right dealer looks after you.</div><div class="wz-chips" id="wz-st"></div>'+back();
+ }else if(step===3){
+  h+=prog(3)+'<div class="wz-h">WHAT\'S YOUR NAME?</div>'
+  +'<label class="wz-lab" for="wz-name">Full name</label><input class="wz-in" id="wz-name" autocomplete="name" placeholder="Jane Smith" value="'+esc(d.name)+'">'
+  +'<div class="wz-err" id="wz-e" aria-live="polite"></div>'
+  +'<button type="button" class="btn wz-btn" id="wz-go">NEXT</button>'+back();
+ }else if(step===4){
+  h+=prog(4)+'<div class="wz-h">'+(first()?'THANKS '+esc(first()).toUpperCase()+'. ':'')+'BEST NUMBER TO REACH YOU?</div>'
+  +'<div class="wz-p">A real person from our sales team calls you, not a call centre.</div>'
+  +'<label class="wz-lab" for="wz-ph">Phone</label><input class="wz-in" id="wz-ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="0412 345 678" value="'+esc(d.phone)+'">'
+  +'<div class="wz-err" id="wz-e" aria-live="polite"></div>'
+  +'<button type="button" class="btn wz-btn" id="wz-go">NEXT</button>'+back();
+ }else if(step===5){
+  h+=prog(5)+'<div class="wz-h">LAST ONE. WHERE DO WE SEND THE DETAILS?</div>'
+  +'<label class="wz-lab" for="wz-em">Email</label><input class="wz-in" id="wz-em" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="jane@email.com" value="'+esc(d.email)+'">'
+  +'<div class="wz-err" id="wz-e" aria-live="polite"></div>'
+  +'<button type="button" class="btn wz-btn" id="wz-go">SEND MY ENQUIRY</button>'
+  +'<div class="wz-note">Your details are safe. No spam, no pressure. Read our <a href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>.</div>'+back();
+ }else if(step===6){
+  var v2=vinfo(d.van);
+  h+='<div class="wz-center"><i class="ti ti-circle-check wz-tick"></i>'
+  +'<div class="wz-h">CONGRATULATIONS'+(first()?', '+esc(first()).toUpperCase():'')+'!</div>'
+  +'<div class="wz-p">'+(v2&&v2.sv?'Your enquiry on the '+esc(v2.n)+' is in, with '+esc(v2.sv)+' off while it lasts. ':'Your enquiry is in. ')+'Someone from our friendly sales team will be in touch within one business day'+(v2&&v2.sv?' to lock it in':'')+'.</div>'
+  +'<button type="button" class="btn wz-btn" id="wz-done">BACK TO THE PAGE</button></div>';
+ }else if(step===7){
+  h+='<div class="wz-center"><div class="wz-h">HMM, YOUR ENQUIRY MAY NOT HAVE REACHED US</div>'
+  +'<div class="wz-p">Your browser blocked the send. This can happen in Private Browsing or with an ad blocker. Please try again with those off, or call us on <a href="tel:0386920032" style="color:var(--obtn);font-weight:700">03 8692 0032</a>.</div>'
+  +'<button type="button" class="btn wz-btn" id="wz-done">CLOSE</button></div>';
+ }
+ bd.innerHTML=h;
+ bindStep();
+}
+function syncVan(n){for(var i=0;i<vanSel.options.length;i++){if((n&&vanSel.options[i].text===n)||(!n&&vanSel.options[i].value==='')){vanSel.selectedIndex=i;break;}}if(typeof renderSel==='function'){try{renderSel(n);}catch(e){}}}
+function bindStep(){
+ var go=g('wz-go');if(go){go.addEventListener('click',next);}
+ var bk=g('wz-bk');if(bk){bk.addEventListener('click',function(){if(step>1){step--;push();render();}});}
+ var dn=g('wz-done');if(dn){dn.addEventListener('click',function(){if(step===7){step=5;var sc2=g('wz-start');if(sc2){sc2.style.display='';}}closeWiz(false);});}
+ var chg=g('wz-chg');if(chg){chg.addEventListener('click',function(){d.van='';syncVan('');render();});}
+ var wv=g('wz-van');
+ if(wv){
+  for(var i=0;i<vanSel.options.length;i++){var o=document.createElement('option');o.text=vanSel.options[i].text;o.value=vanSel.options[i].value;wv.add(o);}
+  wv.value=d.van;
+  wv.addEventListener('change',function(){d.van=wv.value;syncVan(wv.value);render();});
+ }
+ var stc=g('wz-st');
+ if(stc){
+  for(var j=0;j<stateEl.options.length;j++){
+   var t=stateEl.options[j].text,vl=stateEl.options[j].value;
+   if(!vl){continue;}
+   (function(txt){
+    var b=document.createElement('button');b.type='button';b.className='wz-chip'+(txt===d.state?' on':'');b.textContent=txt;
+    b.addEventListener('click',function(){d.state=txt;stateEl.value=txt;dl('clearance_wizard_step',{step:2});step=3;push();render();});
+    stc.appendChild(b);
+   })(t);
+  }
+ }
+ ['wz-name','wz-ph','wz-em'].forEach(function(id){var inp=g(id);if(inp){inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();next();}});}});
+ setTimeout(function(){var t=bd.querySelector('input.wz-in,.wz-chip,#wz-go,#wz-done');if(t){try{t.focus({preventScroll:true});}catch(e){try{t.focus();}catch(e2){}}}},80);
+}
+function next(){
+ var er=g('wz-e');
+ if(step===1){dl('clearance_wizard_step',{step:1});step=2;push();render();return;}
+ if(step===3){var nv=g('wz-name').value.trim();if(nv.length<2){er.textContent='Please pop in your name so we know who to ask for.';return;}d.name=nv;dl('clearance_wizard_step',{step:3});step=4;push();render();return;}
+ if(step===4){var pv=g('wz-ph').value.trim();var dg=pv.replace(/[^0-9+]/g,'');if(!/^(\+?61\d{8,10}|0\d{7,9}|\d{8,10})$/.test(dg)){er.textContent='That number doesn\'t look right. Check it and try again.';return;}d.phone=pv;dl('clearance_wizard_step',{step:4});step=5;push();render();return;}
+ if(step===5){var ev=g('wz-em').value.trim();emailEl.value=ev;if(!ev||!emailEl.checkValidity()){er.textContent='That email doesn\'t look right. Check it and try again.';return;}d.email=ev;dl('clearance_wizard_step',{step:5});send();return;}
+}
+function send(){
+ var b=g('wz-go'),er=g('wz-e');
+ syncVan(d.van);
+ fullEl.value=d.name;phoneEl.value=d.phone;emailEl.value=d.email;
+ if(d.state){stateEl.value=d.state;}
+ if(!f.checkValidity()){if(b){b.disabled=false;b.textContent='SEND MY ENQUIRY';}if(er){er.textContent='Something doesn\'t look right. Go back and check your details.';}return;}
+ if(b){b.disabled=true;b.textContent='SENDING...';}
+ isDone=true;
+ dl('clearance_wizard_done');
+ if(typeof f.requestSubmit==='function'){f.requestSubmit();}
+ else{var tb=document.createElement('button');tb.type='submit';tb.style.display='none';f.appendChild(tb);tb.click();tb.parentNode.removeChild(tb);}
+ step=6;render();
+ confettiDone=false;
+ var n2=0;var iv=setInterval(function(){
+  n2++;
+  var sf=document.getElementById('sendfail');
+  if(sf&&sf.style.display!=='none'){clearInterval(iv);isDone=false;step=7;render();return;}
+  if(n2===4&&!confettiDone){confettiDone=true;confetti();}
+  if(n2>40){clearInterval(iv);}
+ },500);
+ var sc=g('wz-start');if(sc){sc.style.display='none';}
+}
+function confetti(){try{
+ if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){return;}
+ var c=document.createElement('canvas');c.style.cssText='position:fixed;inset:0;z-index:260;pointer-events:none';document.body.appendChild(c);
+ var ctx=c.getContext('2d');var W=c.width=window.innerWidth,H=c.height=window.innerHeight;
+ var cols=['#DB7627','#C25E15','#F7F6F5','#f0b054','#1D1D1B'];var ps=[];
+ for(var i=0;i<110;i++){ps.push({x:Math.random()*W,y:-20-Math.random()*H*0.5,w:6+Math.random()*6,h:8+Math.random()*8,c:cols[i%cols.length],vy:2.2+Math.random()*3,vx:-1.2+Math.random()*2.4,r:Math.random()*Math.PI,vr:-0.12+Math.random()*0.24});}
+ var t0=null;
+ function fr(ts){if(!t0){t0=ts;}var elap=ts-t0;ctx.clearRect(0,0,W,H);
+  for(var j=0;j<ps.length;j++){var p=ps[j];p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();}
+  if(elap<3000){requestAnimationFrame(fr);}else{c.parentNode.removeChild(c);}}
+ requestAnimationFrame(fr);
+}catch(e){}}
+function push(){if(histOn){try{history.replaceState({wz:step},'');}catch(e){}}}
+function openWiz(){if(isOpen){return;}isOpen=true;if(isDone){step=6;}if(vanSel.value){d.van=vanSel.value;}ov.classList.add('on');document.body.style.overflow='hidden';dl('clearance_wizard_open');if(!histOn){try{history.pushState({wz:step},'');histOn=true;}catch(e){}}render();}
+function closeWiz(viaPop){if(!isOpen){return;}isOpen=false;ov.classList.remove('on');var m=document.getElementById('modal');if(!(m&&m.classList.contains('open'))){document.body.style.overflow='';}dl('clearance_wizard_close');if(histOn){histOn=false;if(!viaPop){popGuard=true;try{history.back();}catch(e){popGuard=false;}}}}
+window.addEventListener('popstate',function(e){
+ if(popGuard){popGuard=false;return;}
+ if(!isOpen){return;}
+ if(e.state&&e.state.wz){return;}
+ closeWiz(true);
+});
+var oldPick=window.pick;
+window.pick=function(n){
+ if(useClassic||isDone){if(typeof oldPick==='function'){try{oldPick(n);}catch(e){}}return;}
+ if(n&&n!==d.van){d.van=n;step=1;}
+ if(typeof oldPick==='function'){try{oldPick(n);}catch(e){}}
+ openWiz();
+};
+try{[].forEach.call(document.querySelectorAll('a[href="#enq"]'),function(a){a.addEventListener('click',function(e3){if(!useClassic&&!isDone){e3.preventDefault();}});});}catch(e){}
+f.addEventListener('submit',function(){isDone=true;});
+var card=document.createElement('div');card.id='wz-start';card.className='wz-start';
+card.innerHTML='<div class="wz-h">READY WHEN YOU ARE</div><div class="wz-p" style="font-size:16px">Five quick questions and our friendly sales team will call you back with your best price. Takes about a minute, no obligation.</div><button type="button" class="btn wz-btn" id="wz-open">START MY ENQUIRY</button><div class="wz-note"><button type="button" class="wz-alt" id="wz-classic">Prefer a simple form?</button></div>';
+f.parentNode.insertBefore(card,f);
+f.style.display='none';
+g('wz-open').addEventListener('click',function(){if(vanSel.value){d.van=vanSel.value;}openWiz();});
+g('wz-classic').addEventListener('click',function(){useClassic=true;card.style.display='none';f.style.display='';dl('clearance_wizard_classic');});
+}catch(e){try{
+ var ff=document.getElementById('form');if(ff){ff.style.display='';}
+ var cc=document.getElementById('wz-start');if(cc){cc.style.display='none';}
+ if(typeof oldPick==='function'){window.pick=oldPick;}
+ var ovv=document.getElementById('wiz');if(ovv&&ovv.parentNode){ovv.parentNode.removeChild(ovv);}
+}catch(e2){}}
+})();
+</script>
+<script>(function(){var f=document.getElementById('form');if(f){f.addEventListener('submit',function(){try{window.dataLayer=window.dataLayer||[];var v=(document.getElementById('van')||{}).value||'';window.dataLayer.push({event:'clearance_lead',van:v});}catch(e){}});}})();</script><script>(function(){var f=document.getElementById('form');if(!f)return;f.addEventListener('submit',function(){function show(){try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'clearance_lead_blocked'});var th=document.getElementById('thanks');if(th){th.style.display='none';}var d=document.getElementById('sendfail');if(!d){d=document.createElement('div');d.id='sendfail';d.style.cssText='margin:18px auto;max-width:560px;padding:22px 24px;background:#2b1d1d;border:1px solid #a33;border-radius:12px;color:#fff;text-align:center;font-size:16px;line-height:1.5';d.innerHTML='<strong style="display:block;font-size:18px;margin-bottom:8px">Hmm, your enquiry may not have reached us.</strong>Your browser blocked the send. This can happen in Private Browsing or with an ad blocker. Please try again with those off, or call us on <a href="tel:0386920032" style="color:#f0b054;font-weight:700;text-decoration:underline">03 8692 0032</a>.';(f.parentNode||document.body).appendChild(d);}d.style.display='block';d.scrollIntoView({behavior:'smooth',block:'center'});}catch(e){}}try{fetch('https://wonderlandrv.activehosted.com/proc.php?probe=1',{method:'GET',mode:'no-cors',cache:'no-store'}).catch(function(){show();});}catch(e){show();}});})();</script><script>/*splitname*/(function(){var f=document.getElementById("form");if(!f)return;var fn=document.getElementById("cl_fullname");if(!fn)return;f.addEventListener("submit",function(){var p=(fn.value||"").trim().split(/\s+/);var first=p[0]||"";var last=p.slice(1).join(" ")||first;var fi=f.querySelector("input[name=firstname]"),li=f.querySelector("input[name=lastname]");if(fi)fi.value=first;if(li)li.value=last;},true);})();</script>
