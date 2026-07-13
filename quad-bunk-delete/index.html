@@ -40,24 +40,13 @@
   .textlink{font-family:var(--font);font-weight:500;font-size:16px;color:var(--orange);border-bottom:1px solid var(--orange);padding-bottom:2px}
   .textlink:hover{color:var(--brown);border-color:var(--brown)}
 
-  header{position:sticky;top:0;z-index:200;background:#fff}
-  .hd{display:flex;align-items:center;justify-content:space-between;height:102px}
-  .hd-logo img{width:312px;height:auto}
-  .nav{display:flex;align-items:center;gap:30px}
-  .nav a{font-family:var(--display);font-weight:400;font-size:15px;color:var(--ink);text-transform:lowercase}
-  .nav a:hover{color:var(--orange)}
-  .hd-right{display:flex;align-items:center;gap:22px}
-  .hd-phone{font-family:var(--font);font-weight:500;font-size:16px;color:var(--ink)}
-  .hd-phone:hover{color:var(--orange)}
 
-  .hero{position:relative;height:540px;display:flex;align-items:center;
+  .hero{position:relative;height:500px;display:flex;align-items:flex-end;
     background:url('../assets/landscape-1.jpg') center/cover no-repeat}
-  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(29,29,27,.55) 0%,rgba(29,29,27,.15) 65%)}
-  .hero-in{position:relative;z-index:2;width:100%}
-  .hero .eyebrow{color:var(--orange-light)}
-  .hero h1{font-family:var(--display);font-weight:500;color:#fff;font-size:50px;line-height:44px;text-transform:uppercase;margin-bottom:18px;max-width:640px}
-  .hero p{color:#fff;font-size:19px;line-height:27px;max-width:540px;margin-bottom:26px;font-weight:300}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-in{position:relative;z-index:2;width:100%;padding-bottom:64px}
+  .hero h1{font-family:var(--display);font-weight:500;color:#fff;font-size:50px;line-height:40px;text-transform:uppercase;margin-bottom:22px;max-width:640px}
+  .hero-link{font-family:var(--display);font-weight:500;font-size:22px;line-height:22px;color:var(--orange-light);text-transform:lowercase}
+  .hero-link:hover{color:#fff}
 
   section{padding:96px 0}
   .sec-head h2{font-family:var(--display);font-weight:900;color:var(--ink);font-size:40px;line-height:36px;text-transform:uppercase;margin-bottom:20px}
@@ -120,31 +109,11 @@
   .submit:hover{background:var(--brown)}
   .reassure{font-size:14px;color:var(--g500);margin-top:16px}
 
-  footer{background:#fff;border-top:1px solid var(--g100);padding:72px 0 0}
-  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
-  .foot-logo img{width:260px;margin-bottom:18px}
-  .foot-lead p{font-size:15px;line-height:23px;color:var(--body);margin-bottom:14px;max-width:320px}
-  .foot-lead .ct{font-size:15px;line-height:24px;color:var(--ink)}
-  .foot-lead .ct b{font-weight:500}
-  .foot-col h5{font-family:var(--display);font-weight:400;font-size:16px;color:var(--ink);margin-bottom:16px;text-transform:lowercase}
-  .foot-col a{display:block;font-size:16px;color:var(--body);margin-bottom:11px}
-  .foot-col a:hover{color:var(--orange)}
-  .foot-bottom{border-top:1px solid var(--g100);margin-top:54px;padding:22px 0;text-align:center;font-size:13px;color:var(--g500)}
 
-  .mbar{position:fixed;bottom:0;left:0;right:0;z-index:300;display:none;gap:0;background:#fff;border-top:1px solid var(--g100)}
-  .mbar a{flex:1;text-align:center;font-family:var(--display);font-weight:400;font-size:14px;padding:16px;border:none}
-  .mbar .m-call{background:#fff;color:var(--ink)}
-  .mbar .m-enq{background:var(--orange);color:#fff}
 
-  @media(max-width:1100px){
-    .hd-logo img{width:240px}
-  }
   @media(max-width:900px){
-    .nav{display:none}
-    .hd{height:84px}
-    .hd-logo img{width:210px}
-    .hero{height:460px}
-    .hero h1{font-size:36px;line-height:33px}
+    .hero{height:420px}
+    .hero h1{font-size:36px;line-height:30px}
     section{padding:64px 0}
     .sec-head h2{font-size:30px;line-height:28px}
     .sec-head .lead{font-size:20px;line-height:29px}
@@ -157,53 +126,29 @@
     .frow{grid-template-columns:1fr;gap:0}
     .foot-top{grid-template-columns:1fr 1fr;gap:32px}
     .foot-lead{grid-column:1 / -1}
-    .mbar{display:flex}
-    body{padding-bottom:52px}
+      body{padding-bottom:52px}
     .hd-phone{display:none}
   }
   @media(max-width:480px){
-    .hero h1{font-size:30px;line-height:28px}
-    .foot-top{grid-template-columns:1fr}
+    .hero h1{font-size:30px;line-height:25px}
     .submit{width:100%}
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap hd">
-    <a href="#" class="hd-logo"><img src="../assets/wl-logo.svg" alt="Wonderland RV"></a>
-    <nav class="nav">
-      <a href="#idea">the layout</a>
-      <a href="#vans">vans</a>
-      <a href="#why">why us</a>
-      <a href="#enquire">enquire</a>
-    </nav>
-    <div class="hd-right">
-      <a href="tel:0386920032" class="hd-phone"><span>(03) 8692 0032</span></a>
-      <a href="#enquire" class="btn btn-onlight">GET A QUOTE</a>
-    </div>
-  </div>
-</header>
-
 <div class="hero">
-  <div class="hero-in">
-    <div class="eyebrow">THE QUAD BUNK DELETE LAYOUT</div>
-    <h1>THREE BUNKS.<br>ONE BIG IDEA.</h1>
-    <p>Delete the fourth bunk and gain a full-height storage zone your family will actually use. All the sleeping space you need, plus room for the bikes, boards and camp gear.</p>
-    <div class="hero-cta">
-      <a href="#enquire" class="btn">GET A QUOTE</a>
-      <a href="#idea" class="btn btn-white">SEE THE LAYOUT</a>
-    </div>
+  <div class="wrap hero-in">
+    <h1>THE QUAD BUNK DELETE.</h1>
+    <a href="#enquire" class="hero-link">enquire today</a>
   </div>
 </div>
 
 <section id="idea" class="bg-cream">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">WHY DELETE A BUNK?</div>
       <h2>THE SMARTEST SWAP IN FAMILY CARAVANS</h2>
-      <p class="lead">Most families of four or five never use the fourth bunk. It becomes the dumping ground for bags, toys and washing. This layout turns it into storage that earns its keep.</p>
+      <p class="lead">Delete the fourth bunk and gain a full-height storage zone your family will actually use. All the sleeping space you need, plus room for the bikes, boards and camp gear.</p>
     </div>
     <div class="idea">
       <div class="copy">
@@ -383,35 +328,6 @@
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-lead">
-        <div class="foot-logo"><img src="../assets/wl-logo.svg" alt="Wonderland RV"></div>
-        <p>Australian built off-road caravans. Caravan of the Year 2026 Judges' Choice winner. Finance and trade-ins available.</p>
-        <div class="ct"><b>Let's chat</b><br>(03) 8692 0032<br>46 Lara Way, Campbellfield, Victoria 3061</div>
-      </div>
-      <div class="foot-col">
-        <h5>range</h5>
-        <a href="#vans">XTR</a><a href="#vans">Hornet</a><a href="#vans">Amaroo</a><a href="https://wonderlandrv.com.au/range/">Full range</a>
-      </div>
-      <div class="foot-col">
-        <h5>where to buy</h5>
-        <a href="#enquire">Get a quote</a><a href="#enquire">Book a walkthrough</a><a href="https://www.outboundrvs.com.au/">Find a dealer</a>
-      </div>
-      <div class="foot-col">
-        <h5>locations</h5>
-        <a href="#">Melbourne</a><a href="#">Sydney</a><a href="#">Brisbane</a><a href="#">Perth</a>
-      </div>
-    </div>
-    <div class="foot-bottom">&copy; 2026 Wonderland RV Caravans. All Rights Reserved.</div>
-  </div>
-</footer>
-
-<div class="mbar">
-  <a href="tel:0386920032" class="m-call">CALL</a>
-  <a href="#enquire" class="m-enq">GET A QUOTE</a>
-</div>
 
 <script>
 function wlPick(v){var s=document.getElementById('vanselect');if(s){s.value=v;}}
