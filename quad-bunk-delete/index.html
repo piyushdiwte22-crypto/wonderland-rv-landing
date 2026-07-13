@@ -12,9 +12,9 @@
   @font-face{font-family:"Gordita";src:url("../assets/fonts/Gordita-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
 
   :root{
-    --orange:#DB7627; --orange-light:#FFAC6A; --brown:#764C36; --brown-band:#B4775F;
+    --orange:#DB7627; --orange-light:#FFAC6A; --brown:#764C36;
     --ink:#1D1D1B; --body:#414042; --label:#565656;
-    --cream:#F7F6F5; --near-white:#FDFAFA; --white:#FFFFFF;
+    --cream:#F7F6F5; --blush:#F8F2EC; --near-white:#FDFAFA; --white:#FFFFFF;
     --g100:#EBEBEB; --g200:#C1C0C0; --g300:#A8A4A1; --g400:#918F8D; --g500:#707070;
     --display:"aviano-sans","Arial Narrow",Arial,sans-serif;
     --font:"Gordita","Helvetica Neue",Arial,sans-serif;
@@ -22,101 +22,91 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:var(--font);font-weight:400;font-size:18px;line-height:26px;color:var(--body);background:var(--white);font-kerning:none;-webkit-font-smoothing:antialiased}
+  body{font-family:var(--font);font-weight:400;font-size:18px;line-height:24px;color:var(--body);background:var(--white);font-kerning:none;-webkit-font-smoothing:antialiased}
   img{display:block;max-width:100%}
   a{color:var(--ink);text-decoration:none;transition:color .2s}
   a:hover{color:var(--orange)}
   b,strong{font-weight:500}
-  h1,h2,h3{font-family:var(--display);font-weight:900;color:var(--ink);letter-spacing:-0.4px;line-height:1}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 30px}
-  .eyebrow{font-family:var(--display);font-weight:900;color:var(--orange);font-size:20px;line-height:1;letter-spacing:0;margin-bottom:14px}
+  .eyebrow{font-family:var(--display);font-weight:500;color:var(--orange);font-size:22px;line-height:22px;text-transform:uppercase;margin-bottom:16px}
 
-  .btn{display:inline-block;text-align:center;font-family:var(--display);font-weight:900;font-size:16px;line-height:1;
-    background:var(--orange);color:#fff;border:2px solid var(--orange);border-radius:0;padding:16px 30px;cursor:pointer;transition:all .25s}
-  .btn:hover{background:rgba(240,239,237,.6);color:var(--orange);border-color:var(--orange)}
-  .btn-onlight:hover{background:var(--cream);color:var(--orange)}
-  .btn-line{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-  .btn-line:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-  .btn-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
-  .btn-white:hover{background:#fff;color:var(--orange);border-color:#fff}
-  .textlink{font-family:var(--display);font-weight:900;font-size:15px;color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:3px}
+  .btn{display:inline-block;text-align:center;font-family:var(--display);font-weight:400;font-size:14px;line-height:1;
+    background:var(--orange);color:#fff;border:none;border-radius:0;padding:14px 24px;cursor:pointer;transition:background .25s}
+  .btn:hover{background:var(--brown);color:#fff}
+  .btn-line{background:transparent;color:var(--ink);border:1px solid var(--ink);padding:13px 23px}
+  .btn-line:hover{background:var(--ink);color:#fff}
+  .btn-white{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.8);padding:13px 23px}
+  .btn-white:hover{background:#fff;color:var(--ink)}
+  .textlink{font-family:var(--font);font-weight:500;font-size:16px;color:var(--orange);border-bottom:1px solid var(--orange);padding-bottom:2px}
   .textlink:hover{color:var(--brown);border-color:var(--brown)}
 
-  header{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--g100)}
-  .hd{display:flex;align-items:center;justify-content:space-between;height:88px}
-  .hd-logo img{height:30px;width:auto}
-  .nav{display:flex;align-items:center;gap:26px}
-  .nav a{font-family:var(--font);font-weight:400;font-size:15px;color:var(--orange)}
-  .nav a:hover{color:var(--brown)}
-  .hd-right{display:flex;align-items:center;gap:20px}
-  .hd-phone{font-family:var(--display);font-weight:900;font-size:15px;color:var(--ink)}
+  header{position:sticky;top:0;z-index:200;background:#fff}
+  .hd{display:flex;align-items:center;justify-content:space-between;height:102px}
+  .hd-logo img{width:312px;height:auto}
+  .nav{display:flex;align-items:center;gap:30px}
+  .nav a{font-family:var(--display);font-weight:400;font-size:15px;color:var(--ink);text-transform:lowercase}
+  .nav a:hover{color:var(--orange)}
+  .hd-right{display:flex;align-items:center;gap:22px}
+  .hd-phone{font-family:var(--font);font-weight:500;font-size:16px;color:var(--ink)}
   .hd-phone:hover{color:var(--orange)}
 
-  .hero{position:relative;min-height:84vh;display:flex;align-items:flex-end;
+  .hero{position:relative;height:540px;display:flex;align-items:center;
     background:url('../assets/landscape-1.jpg') center/cover no-repeat}
-  .hero::before{content:"";position:absolute;inset:0;background:rgba(29,29,27,.42)}
-  .hero-in{position:relative;z-index:2;padding:0 30px 70px;max-width:760px}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(29,29,27,.55) 0%,rgba(29,29,27,.15) 65%)}
+  .hero-in{position:relative;z-index:2;width:100%}
   .hero .eyebrow{color:var(--orange-light)}
-  .hero h1{color:#fff;font-size:62px;line-height:.92;margin-bottom:20px}
-  .hero p{color:#fff;font-size:19px;line-height:28px;max-width:560px;margin-bottom:28px}
+  .hero h1{font-family:var(--display);font-weight:500;color:#fff;font-size:50px;line-height:44px;text-transform:uppercase;margin-bottom:18px;max-width:640px}
+  .hero p{color:#fff;font-size:19px;line-height:27px;max-width:540px;margin-bottom:26px;font-weight:300}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px;color:#fff;font-size:14px}
-  .hero-trust span{display:flex;align-items:center;gap:8px}
-  .hero-trust i{color:var(--orange-light);font-style:normal;font-weight:700}
 
-  section{padding:110px 0}
-  .sec-head{max-width:680px}
-  .sec-head.center{margin:0 auto;text-align:center}
-  .sec-head h2{font-size:44px;line-height:1;margin-bottom:18px}
-  .sec-head p{font-size:19px;line-height:28px;color:var(--body)}
+  section{padding:96px 0}
+  .sec-head h2{font-family:var(--display);font-weight:900;color:var(--ink);font-size:40px;line-height:36px;text-transform:uppercase;margin-bottom:20px}
+  .sec-head .lead{font-size:24px;line-height:34px;color:var(--body);max-width:820px;font-weight:400}
   .bg-cream{background:var(--cream)}
-  .bg-nw{background:var(--near-white)}
+  .bg-blush{background:var(--blush)}
 
-  /* layout idea + floorplan */
-  .idea{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center;margin-top:60px}
-  .idea .copy p{margin-bottom:18px}
-  .idea .copy .specs{margin-top:26px}
-  .plan{background:#fff;border:1px solid var(--g100);padding:34px}
+  .idea{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center;margin-top:64px}
+  .idea .copy p{margin-bottom:16px;font-size:18px;line-height:26px}
+  .idea .copy .specs{margin-top:28px}
+  .plan{background:#fff;padding:34px}
   .plan-toggle{display:flex;margin-bottom:28px}
-  .plan-toggle button{flex:1;font-family:var(--display);font-weight:900;font-size:14px;line-height:1;padding:16px 10px;
-    background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:0;cursor:pointer;transition:all .25s}
+  .plan-toggle button{flex:1;font-family:var(--display);font-weight:400;font-size:14px;line-height:1;padding:14px 10px;
+    background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:0;cursor:pointer;transition:all .25s}
   .plan-toggle button+button{border-left:none}
   .plan-toggle button.on{background:var(--ink);color:#fff}
   .plan svg{width:100%;height:auto}
   .bunk4,.gear{transition:opacity .5s ease}
-  .plan-cap{text-align:center;font-size:14px;color:var(--g500);margin-top:16px;min-height:22px}
+  .plan-cap{text-align:center;font-size:15px;color:var(--g500);margin-top:16px;min-height:22px}
 
-  /* van blocks (verbatim pattern) */
-  .van{display:grid;grid-template-columns:1.05fr 1fr;gap:54px;align-items:center;margin-top:70px}
-  .van:first-of-type{margin-top:54px}
+  .van{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;margin-top:88px}
+  .van:first-of-type{margin-top:64px}
   .van.flip .van-media{order:2}
   .van-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
-  .van-label{font-family:var(--display);font-weight:900;font-size:20px;color:var(--orange);line-height:1;margin-bottom:12px}
-  .van h3{font-size:40px;line-height:1;margin-bottom:16px}
-  .van .lead{font-size:18px;line-height:27px;color:var(--body);margin-bottom:22px}
-  .specs{border-top:1px solid var(--g100);margin-bottom:24px}
-  .specs .row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--g100);font-size:15px}
+  .van-label{font-family:var(--display);font-weight:500;font-size:22px;color:var(--orange);line-height:22px;text-transform:uppercase;margin-bottom:14px}
+  .van h3{font-family:var(--display);font-weight:900;color:var(--ink);font-size:32px;line-height:30px;text-transform:uppercase;margin-bottom:16px}
+  .van .lead{font-size:18px;line-height:26px;color:var(--body);margin-bottom:22px}
+  .specs{border-top:1px solid var(--g100);margin-bottom:26px}
+  .specs .row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--g100);font-size:16px}
   .specs .row .k{color:var(--g500)}
   .specs .row .v{color:var(--ink);font-weight:500;text-align:right}
-  .van-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+  .van-actions{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 
-  .band{background:var(--brown-band);color:#fff;padding:80px 0}
-  .band .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px}
-  .band .num{font-family:var(--display);font-weight:900;font-size:18px;color:#fff;line-height:1;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.4)}
-  .band h4{font-family:var(--display);font-weight:900;font-size:19px;color:#fff;margin-bottom:8px;line-height:1.05}
-  .band p{font-size:15px;line-height:23px;color:#f2e7e1}
+  .band{background:var(--blush);padding:88px 0}
+  .band h2{font-family:var(--display);font-weight:900;color:var(--ink);font-size:40px;line-height:36px;text-transform:uppercase;margin-bottom:48px}
+  .band .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+  .band .num{font-family:var(--display);font-weight:500;font-size:22px;color:var(--orange);line-height:1;margin-bottom:14px}
+  .band h4{font-family:var(--font);font-weight:500;font-size:20px;color:var(--ink);margin-bottom:8px;line-height:28px}
+  .band p{font-size:16px;line-height:24px;color:var(--body)}
 
-  /* faq */
-  .faqlist{max-width:820px;margin:44px auto 0}
+  .faqlist{max-width:860px;margin-top:48px}
   .faqlist details{border-bottom:1px solid var(--g100)}
-  .faqlist summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-weight:500;color:var(--ink);font-size:19px}
+  .faqlist summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-weight:500;color:var(--ink);font-size:20px;line-height:30px}
   .faqlist summary::-webkit-details-marker{display:none}
-  .faqlist summary:after{content:'+';font-family:var(--display);font-weight:900;color:var(--orange);font-size:22px;line-height:1}
+  .faqlist summary:after{content:'+';font-family:var(--font);font-weight:300;color:var(--orange);font-size:28px;line-height:1}
   .faqlist details[open] summary:after{content:'\2013'}
   .faqlist .a{padding:0 0 24px;color:var(--body);max-width:700px}
 
-  /* form (verbatim pattern) */
-  .formgrid{max-width:720px;margin:40px auto 0}
+  .formgrid{max-width:760px;margin:52px 0 0}
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
   .field{margin-bottom:6px}
   .field label{display:block;margin:18px 0 10px;line-height:1;font-size:16px;font-weight:400;color:var(--label)}
@@ -124,50 +114,57 @@
     border-bottom:1px solid #000;border-radius:0;padding:0;outline:none;font-family:var(--font);font-size:18px;color:var(--ink)}
   .field input::placeholder{color:var(--g300)}
   .field input:focus,.field select:focus{border-bottom-color:var(--orange)}
-  .submitwrap{margin-top:30px}
-  .submit{width:100%;height:62px;border:none;border-radius:0;background:var(--orange);color:#fff;
-    font-family:var(--display);font-weight:900;font-size:17px;cursor:pointer;transition:background .25s}
+  .submitwrap{margin-top:34px}
+  .submit{width:190px;height:56px;border:none;border-radius:0;background:var(--orange);color:#fff;
+    font-family:var(--display);font-weight:400;font-size:15px;cursor:pointer;transition:background .25s}
   .submit:hover{background:var(--brown)}
-  .reassure{text-align:center;font-size:14px;color:var(--g500);margin-top:16px}
+  .reassure{font-size:14px;color:var(--g500);margin-top:16px}
 
   footer{background:#fff;border-top:1px solid var(--g100);padding:72px 0 0}
   .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
-  .foot-logo img{height:30px;margin-bottom:18px}
+  .foot-logo img{width:260px;margin-bottom:18px}
   .foot-lead p{font-size:15px;line-height:23px;color:var(--body);margin-bottom:14px;max-width:320px}
   .foot-lead .ct{font-size:15px;line-height:24px;color:var(--ink)}
   .foot-lead .ct b{font-weight:500}
-  .foot-col h5{font-family:var(--display);font-weight:900;font-size:18px;color:var(--orange);margin-bottom:16px;text-transform:lowercase}
-  .foot-col a{display:block;font-size:16px;color:var(--ink);margin-bottom:11px}
+  .foot-col h5{font-family:var(--display);font-weight:400;font-size:16px;color:var(--ink);margin-bottom:16px;text-transform:lowercase}
+  .foot-col a{display:block;font-size:16px;color:var(--body);margin-bottom:11px}
+  .foot-col a:hover{color:var(--orange)}
   .foot-bottom{border-top:1px solid var(--g100);margin-top:54px;padding:22px 0;text-align:center;font-size:13px;color:var(--g500)}
 
   .mbar{position:fixed;bottom:0;left:0;right:0;z-index:300;display:none;gap:0;background:#fff;border-top:1px solid var(--g100)}
-  .mbar a{flex:1;text-align:center;font-family:var(--display);font-weight:900;font-size:15px;padding:16px;border:none}
+  .mbar a{flex:1;text-align:center;font-family:var(--display);font-weight:400;font-size:14px;padding:16px;border:none}
   .mbar .m-call{background:#fff;color:var(--ink)}
   .mbar .m-enq{background:var(--orange);color:#fff}
 
+  @media(max-width:1100px){
+    .hd-logo img{width:240px}
+  }
   @media(max-width:900px){
     .nav{display:none}
-    .hero h1{font-size:40px}
-    .hero{min-height:78vh}
-    .hero-in{padding-bottom:50px}
+    .hd{height:84px}
+    .hd-logo img{width:210px}
+    .hero{height:460px}
+    .hero h1{font-size:36px;line-height:33px}
     section{padding:64px 0}
-    .sec-head h2{font-size:30px}
-    .idea{grid-template-columns:1fr;gap:34px;margin-top:40px}
+    .sec-head h2{font-size:30px;line-height:28px}
+    .sec-head .lead{font-size:20px;line-height:29px}
+    .idea{grid-template-columns:1fr;gap:36px;margin-top:44px}
     .van,.van.flip .van-media{grid-template-columns:1fr;gap:26px;order:0}
     .van .van-media{order:-1}
-    .van h3{font-size:32px}
-    .band{padding:54px 0}
+    .van h3{font-size:26px;line-height:25px}
+    .band{padding:56px 0}
     .band .grid{grid-template-columns:1fr 1fr;gap:30px}
     .frow{grid-template-columns:1fr;gap:0}
     .foot-top{grid-template-columns:1fr 1fr;gap:32px}
     .foot-lead{grid-column:1 / -1}
     .mbar{display:flex}
-    body{padding-bottom:54px}
-    .hd-phone span{display:none}
+    body{padding-bottom:52px}
+    .hd-phone{display:none}
   }
   @media(max-width:480px){
-    .hero h1{font-size:33px}
+    .hero h1{font-size:30px;line-height:28px}
     .foot-top{grid-template-columns:1fr}
+    .submit{width:100%}
   }
 </style>
 </head>
@@ -198,20 +195,15 @@
       <a href="#enquire" class="btn">GET A QUOTE</a>
       <a href="#idea" class="btn btn-white">SEE THE LAYOUT</a>
     </div>
-    <div class="hero-trust">
-      <span><i>&#9670;</i> COTY 2026 Judges' Choice</span>
-      <span><i>&#9670;</i> Lithium + solar as standard</span>
-      <span><i>&#9670;</i> Australian made</span>
-    </div>
   </div>
 </div>
 
 <section id="idea" class="bg-cream">
   <div class="wrap">
-    <div class="sec-head center">
+    <div class="sec-head">
       <div class="eyebrow">WHY DELETE A BUNK?</div>
-      <h2>THE SMARTEST SWAP IN FAMILY CARAVANS.</h2>
-      <p>Most families of four or five never use the fourth bunk. It becomes the dumping ground for bags, toys and washing. This layout turns it into storage that earns its keep.</p>
+      <h2>THE SMARTEST SWAP IN FAMILY CARAVANS</h2>
+      <p class="lead">Most families of four or five never use the fourth bunk. It becomes the dumping ground for bags, toys and washing. This layout turns it into storage that earns its keep.</p>
     </div>
     <div class="idea">
       <div class="copy">
@@ -261,10 +253,10 @@
 
 <section id="vans">
   <div class="wrap">
-    <div class="sec-head center">
+    <div class="sec-head">
       <div class="eyebrow">CHOOSE YOUR VAN</div>
-      <h2>ONE LAYOUT. THREE WAYS TO HAVE IT.</h2>
-      <p>The quad bunk delete is available across the range. Same idea, three different price points and spec levels.</p>
+      <h2>ONE LAYOUT. THREE WAYS TO HAVE IT</h2>
+      <p class="lead">The quad bunk delete is available across the range. Same idea, three different price points and spec levels.</p>
     </div>
 
     <div class="van">
@@ -326,20 +318,21 @@
 
 <div class="band" id="why">
   <div class="wrap">
+    <h2>WHY FAMILIES CHOOSE WONDERLAND</h2>
     <div class="grid">
-      <div><div class="num">01</div><h4>AWARD WINNING</h4><p>Caravan of the Year 2026 Judges' Choice.</p></div>
-      <div><div class="num">02</div><h4>OFF-GRID READY</h4><p>Lithium and solar packages built in.</p></div>
-      <div><div class="num">03</div><h4>BUILT TOUGH</h4><p>Australian made for real off-road touring.</p></div>
-      <div><div class="num">04</div><h4>FINANCE + TRADE-IN</h4><p>Flexible finance and trade-ins welcome.</p></div>
+      <div><div class="num">01</div><h4>Award winning</h4><p>Caravan of the Year 2026 Judges' Choice.</p></div>
+      <div><div class="num">02</div><h4>Off-grid ready</h4><p>Lithium and solar packages built in.</p></div>
+      <div><div class="num">03</div><h4>Built tough</h4><p>Australian made for real off-road touring.</p></div>
+      <div><div class="num">04</div><h4>Finance and trade-ins</h4><p>Flexible finance and trade-ins welcome.</p></div>
     </div>
   </div>
 </div>
 
 <section class="bg-nw">
   <div class="wrap">
-    <div class="sec-head center">
+    <div class="sec-head">
       <div class="eyebrow">GOOD TO KNOW</div>
-      <h2>QUESTIONS FAMILIES ASK.</h2>
+      <h2>QUESTIONS FAMILIES ASK</h2>
     </div>
     <div class="faqlist">
       <details><summary>Can I have the fourth bunk instead?</summary><div class="a">Of course. The layout is decided when you spec your van with our team, and plenty of families look at both versions side by side at the factory before choosing.</div></details>
@@ -352,10 +345,10 @@
 
 <section id="enquire" class="bg-cream">
   <div class="wrap">
-    <div class="sec-head center">
+    <div class="sec-head">
       <div class="eyebrow">GET A QUOTE</div>
-      <h2>TELL US WHICH VAN. WE'LL GET STRAIGHT BACK TO YOU.</h2>
-      <p>Pricing, build times and a no-pressure walkthrough, in person or over video. We usually reply the same day.</p>
+      <h2>TELL US WHICH VAN. WE'LL GET STRAIGHT BACK TO YOU</h2>
+      <p class="lead">Pricing, build times and a no-pressure walkthrough, in person or over video. We usually reply the same day.</p>
     </div>
     <form id="wlform" class="formgrid" onsubmit="return wlDemo(event)">
       <div class="frow">
@@ -437,7 +430,7 @@ function wlDemo(e){
   var d=document.createElement('div');
   d.style.cssText='text-align:center;padding:60px 10px';
   var h=document.createElement('div');
-  h.style.cssText='font-family:aviano-sans,Arial;font-weight:900;font-size:30px;letter-spacing:-0.4px;color:#1D1D1B;margin-bottom:12px';
+  h.style.cssText='font-family:aviano-sans,Arial;font-weight:500;font-size:30px;letter-spacing:-0.4px;color:#1D1D1B;margin-bottom:12px';
   h.textContent="THANKS, WE'VE GOT IT.";
   var p=document.createElement('p');
   p.style.color='#414042';
