@@ -7,13 +7,20 @@
 <title>Wonderland RV page — in-context preview | Off Grid Outfitters</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Asap:wght@100;400;500&family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Asap:wght@100;400;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/ywn7byg.css">
 <style>
+  /* ── Wonderland RV brand fonts ───────────────────────────────
+     Aviano Sans 900 via the Wonderland Adobe Fonts kit (ywn7byg)
+     Gordita self-hosted from the Wonderland CDN (CORS open)      */
+  @font-face{font-family:'Gordita';src:url('https://wonderlandrv.com.au/wp-content/uploads/2022/11/Gordita-Light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+  @font-face{font-family:'Gordita';src:url('https://wonderlandrv.com.au/wp-content/uploads/2022/11/Gordita-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:'Gordita';src:url('https://wonderlandrv.com.au/wp-content/uploads/2022/11/Gordita-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
   :root{
     --o:#DB7627; --o-dark:#b3611e;
     --ink:#1a1a1a; --grey:#6b655e; --line:#e4ded5; --cream:#fbf9f6;
-    --head:'Archivo',Arial,sans-serif;
-    --body:'Poppins',Arial,sans-serif;
+    --head:'aviano-sans','Archivo',Arial,sans-serif;   /* Aviano Sans 900 */
+    --body:'Gordita','Poppins',Arial,sans-serif;       /* Gordita */
     --ogo-dark:#1b1f23; --ogo-orange:#f37021;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -24,7 +31,7 @@
 
   /* ── annotation bar ─────────────────────────── */
   .anno{background:#DB7627;color:#fff;font-family:var(--head);font-size:12px;letter-spacing:.1em;
-        text-transform:uppercase;padding:9px 24px;text-align:center;font-weight:700}
+        text-transform:uppercase;padding:9px 24px;text-align:center;font-weight:900}
   .marker{background:#fffbe6;border-left:4px solid #DB7627;color:#7a5b12;font-size:12.5px;
           padding:8px 24px;text-align:center;font-family:var(--body);letter-spacing:.2px}
 
@@ -46,7 +53,7 @@
                 color:#333;letter-spacing:.02em}
 
   /* ── PAGE CONTENT (the proposal) ────────────── */
-  .content h1,.content h2,.content h3,.content .h{font-family:var(--head);font-weight:800;letter-spacing:.02em;
+  .content h1,.content h2,.content h3,.content .h{font-family:var(--head);font-weight:900;letter-spacing:.02em;
        text-transform:uppercase;line-height:1.1}
   .content{font-family:var(--body);color:var(--ink)}
 
@@ -54,11 +61,11 @@
   .hero-media{position:relative;padding-top:52%;min-height:380px}
   .hero-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .hero-copy{padding:40px 0 46px;background:#0d0d0d}
-  .eyebrow{font-family:var(--head);font-size:12px;letter-spacing:.28em;color:var(--o);font-weight:700;margin-bottom:12px}
+  .eyebrow{font-family:var(--head);font-size:12px;letter-spacing:.28em;color:var(--o);font-weight:900;margin-bottom:12px}
   .hero h2{font-size:clamp(28px,4.6vw,48px);margin-bottom:14px}
   .hero p{color:#c9c3ba;font-size:16.5px;max-width:660px;font-weight:300}
   .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-  .btn{display:inline-block;background:var(--o);color:#fff;font-family:var(--head);font-weight:700;font-size:13.5px;
+  .btn{display:inline-block;background:var(--o);color:#fff;font-family:var(--head);font-weight:900;font-size:13.5px;
        letter-spacing:.12em;text-transform:uppercase;padding:15px 28px;transition:background .15s}
   .btn:hover{background:var(--o-dark)}
   .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.45)}
@@ -80,7 +87,7 @@
   .van-img{background:var(--cream);padding:24px 16px;display:flex;align-items:center;justify-content:center;min-height:166px;position:relative}
   .van-img img{max-height:126px;width:auto;object-fit:contain}
   .flag{position:absolute;top:12px;left:12px;background:var(--o);color:#fff;font-family:var(--head);
-        font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 9px}
+        font-size:10px;font-weight:900;letter-spacing:.12em;padding:5px 9px}
   .van-body{padding:20px 19px 22px;display:flex;flex-direction:column;flex:1}
   .van-body h3{font-size:20px;margin-bottom:4px}
   .van-tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--o);font-weight:600;margin-bottom:11px}
@@ -92,7 +99,7 @@
   .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:20px}
   .q{background:#fff;border:1px solid var(--line);border-top:3px solid var(--o);padding:26px 24px}
   .q .mark{font-family:var(--head);font-size:38px;color:var(--o);line-height:.8;margin-bottom:9px}
-  .q p{font-size:14.5px;font-style:italic;color:#3a3a3a;margin-bottom:16px;line-height:1.6}
+  .q p{font-size:14.5px;color:#3a3a3a;margin-bottom:16px;line-height:1.6}
   .q .who{font-family:var(--head);font-size:12.5px;letter-spacing:.08em}
   .q .src{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-top:3px}
 
