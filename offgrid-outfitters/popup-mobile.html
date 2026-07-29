@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Newsletter popup — mobile design options</title>
+<link rel="stylesheet" href="https://use.typekit.net/ywn7byg.css">
+<style>
+  @font-face{font-family:'Gordita';src:url('https://wonderlandrv.com.au/wp-content/uploads/2022/11/Gordita-Light.woff2') format('woff2');font-weight:300;font-display:swap}
+  @font-face{font-family:'Gordita';src:url('https://wonderlandrv.com.au/wp-content/uploads/2022/11/Gordita-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Gordita';src:url('https://wonderlandrv.com.au/wp-content/uploads/2022/11/Gordita-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+  :root{--o:#DB7627;--ink:#111;--head:'aviano-sans',Arial,sans-serif;--body:'Gordita',Arial,sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#1e2124;font-family:var(--body);color:#fff;padding:0 0 60px}
+
+  .top{background:var(--o);padding:11px;text-align:center;font-family:var(--head);font-weight:900;
+       font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+  .intro{max-width:900px;margin:0 auto;padding:26px 20px 8px;text-align:center}
+  .intro h1{font-family:var(--head);font-weight:900;font-size:20px;letter-spacing:.02em;text-transform:uppercase;margin-bottom:8px}
+  .intro p{color:#b9b4ad;font-size:14px;font-weight:300}
+
+  .row{display:flex;gap:34px;justify-content:center;flex-wrap:wrap;padding:26px 20px}
+  .col{width:330px}
+  .cap{text-align:center;margin-bottom:14px}
+  .cap b{font-family:var(--head);font-weight:900;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--o)}
+  .cap span{display:block;color:#b9b4ad;font-size:12.5px;margin-top:5px;line-height:1.45}
+
+  /* iPhone frame */
+  .phone{width:330px;height:668px;background:#000;border-radius:38px;padding:11px;
+         box-shadow:0 18px 50px rgba(0,0,0,.55);position:relative}
+  .screen{position:relative;width:100%;height:100%;border-radius:28px;overflow:hidden;
+          background:url('https://wonderlandrv.com.au/wp-content/uploads/2023/02/171026_NT_2_Driving_148_v2_resized-copy.jpg') center/cover}
+  .notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:104px;height:24px;
+         background:#000;border-radius:0 0 14px 14px;z-index:9}
+  .dim{position:absolute;inset:0;background:rgba(0,0,0,.62);display:flex;align-items:center;justify-content:center;padding:16px}
+
+  /* ── shared popup bits ── */
+  .pop{width:100%;background:#000;position:relative;overflow:hidden}
+  .x{position:absolute;top:0;right:0;width:44px;height:44px;background:rgba(0,0,0,.5);color:#fff;
+     border:0;font-size:19px;line-height:44px;text-align:center;z-index:4;cursor:pointer}
+  .pic{width:100%;background:url('https://wonderlandrv.com.au/wp-content/uploads/2026/02/Solara-2026-External-White-Transparent-BG-4.webp') center/contain no-repeat #fbf9f6}
+  .pad{padding:22px 20px 24px;text-align:center}
+  .pop h3{font-family:var(--head);font-weight:900;color:#fff;line-height:1.15;letter-spacing:.01em}
+  .pop p{color:#ddd8d1;font-weight:300;line-height:1.5}
+  .fld{width:100%;padding:12px 14px;border:1px solid #cfc7bb;background:#fff;color:#202223;
+       font-family:var(--body);font-size:16px;border-radius:0;margin-bottom:10px}
+  .go{background:var(--o);color:#fff;border:0;border-radius:0;padding:12px 26px;cursor:pointer;
+      font-family:var(--head);font-weight:900;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
+      line-height:1.1;-webkit-text-stroke:.4px currentColor}
+  .fine{color:#8a857e;font-size:10.5px;margin-top:10px}
+
+  /* A — refined current */
+  .A .pic{height:132px}
+  .A h3{font-size:20px;margin-bottom:9px}
+  .A p{font-size:13.5px;margin-bottom:16px}
+  .A .go{width:auto}
+
+  /* B — compact, photo strip */
+  .B .pic{height:96px;background-size:cover;
+          background-image:url('https://wonderlandrv.com.au/wp-content/uploads/2023/02/171026_NT_2_Driving_148_v2_resized-copy.jpg')}
+  .B .pad{padding:20px 18px 22px}
+  .B h3{font-size:19px;margin-bottom:8px}
+  .B p{font-size:13px;margin-bottom:14px}
+  .B .go{width:100%}
+
+  /* C — no image, type-led */
+  .C .pad{padding:30px 22px 26px}
+  .C h3{font-size:23px;margin-bottom:10px}
+  .C p{font-size:13.5px;margin-bottom:18px}
+  .C .go{width:100%}
+  .C .rule{width:38px;height:3px;background:var(--o);margin:0 auto 16px}
+
+  .meta{text-align:center;color:#8a857e;font-size:11.5px;margin-top:12px}
+</style>
+</head>
+<body>
+
+<div class="top">Mobile popup — design options — nothing on the site has changed</div>
+
+<div class="intro">
+  <h1>Pick a direction for iPhone</h1>
+  <p>Shown at 390&times;844 inside a phone frame, over the real homepage. Same form, same brand fonts. Tell me A, B or C and I'll build it into the live template.</p>
+</div>
+
+<div class="row">
+
+  <!-- A -->
+  <div class="col">
+    <div class="cap"><b>Option A</b><span>Van on cream, like your range cards.<br>Whole van visible, no crop.</span></div>
+    <div class="phone"><div class="screen"><div class="notch"></div><div class="dim">
+      <div class="pop A">
+        <button class="x">&times;</button>
+        <div class="pic"></div>
+        <div class="pad">
+          <h3>PREPARE FOR YOUR<br>NEXT ADVENTURE!</h3>
+          <p>Be first to hear about new models, events and exclusive offers.</p>
+          <input class="fld" placeholder="Email">
+          <button class="go">Sign Me Up!</button>
+        </div>
+      </div>
+    </div></div></div>
+    <div class="meta">popup ≈ 63% of screen</div>
+  </div>
+
+  <!-- B -->
+  <div class="col">
+    <div class="cap"><b>Option B</b><span>Slim lifestyle strip up top.<br>Most compact, full-width button.</span></div>
+    <div class="phone"><div class="screen"><div class="notch"></div><div class="dim">
+      <div class="pop B">
+        <button class="x">&times;</button>
+        <div class="pic"></div>
+        <div class="pad">
+          <h3>PREPARE FOR YOUR<br>NEXT ADVENTURE!</h3>
+          <p>Be first to hear about new models, events and exclusive offers.</p>
+          <input class="fld" placeholder="Email">
+          <button class="go">Sign Me Up!</button>
+        </div>
+      </div>
+    </div></div></div>
+    <div class="meta">popup ≈ 52% of screen</div>
+  </div>
+
+  <!-- C -->
+  <div class="col">
+    <div class="cap"><b>Option C</b><span>No photo, type-led.<br>Smallest and fastest to read.</span></div>
+    <div class="phone"><div class="screen"><div class="notch"></div><div class="dim">
+      <div class="pop C">
+        <button class="x">&times;</button>
+        <div class="pad">
+          <div class="rule"></div>
+          <h3>PREPARE FOR YOUR NEXT ADVENTURE!</h3>
+          <p>Be first to hear about new models, events and exclusive offers.</p>
+          <input class="fld" placeholder="Email">
+          <button class="go">Sign Me Up!</button>
+          <div class="fine">No spam. Unsubscribe any time.</div>
+        </div>
+      </div>
+    </div></div></div>
+    <div class="meta">popup ≈ 42% of screen</div>
+  </div>
+
+</div>
+</body>
+</html>
