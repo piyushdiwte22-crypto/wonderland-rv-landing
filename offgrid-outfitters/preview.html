@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Wonderland RV page — in-context preview | Off Grid Outfitters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Asap:wght@100;400;500&family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --o:#DB7627; --o-dark:#b3611e;
+    --ink:#1a1a1a; --grey:#6b655e; --line:#e4ded5; --cream:#fbf9f6;
+    --head:'Archivo',Arial,sans-serif;
+    --body:'Poppins',Arial,sans-serif;
+    --ogo-dark:#1b1f23; --ogo-orange:#f37021;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Roboto',Arial,sans-serif;color:#333;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* ── annotation bar ─────────────────────────── */
+  .anno{background:#DB7627;color:#fff;font-family:var(--head);font-size:12px;letter-spacing:.1em;
+        text-transform:uppercase;padding:9px 24px;text-align:center;font-weight:700}
+  .marker{background:#fffbe6;border-left:4px solid #DB7627;color:#7a5b12;font-size:12.5px;
+          padding:8px 24px;text-align:center;font-family:var(--body);letter-spacing:.2px}
+
+  /* ── OGO HEADER (recreated) ─────────────────── */
+  .ogo-top{background:var(--ogo-dark);color:#c9ccd0;font-size:12px}
+  .ogo-top .wrap{display:flex;align-items:center;gap:18px;height:38px}
+  .ogo-top .soc{display:flex;gap:12px;color:#8e959c}
+  .ogo-top .r{margin-left:auto;display:flex;gap:20px;align-items:center}
+  .ogo-cart{background:var(--ogo-orange);color:#fff;padding:9px 14px;font-size:12px;font-weight:500}
+  .ogo-head{background:var(--ogo-dark);color:#fff}
+  .ogo-head .wrap{display:flex;align-items:center;gap:30px;height:82px}
+  .ogo-logo{background:#fff;color:var(--ogo-dark);font-family:'Asap',sans-serif;font-weight:500;
+            font-size:15px;padding:10px 14px;line-height:1.05;border-radius:2px}
+  .ogo-logo b{color:var(--ogo-orange);display:block;font-size:11px;letter-spacing:.14em}
+  .ogo-nav{display:flex;gap:24px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:0 auto}
+  .ogo-nav a{color:#fff;opacity:.92}
+  .ogo-nav a.on{color:var(--ogo-orange)}
+  .ogo-search{background:#fff;color:#999;font-size:12px;padding:9px 14px;width:200px;border-radius:2px}
+  .ogo-title{border-bottom:1px solid #e6e6e6;padding:26px 0}
+  .ogo-title h1{font-family:'Asap',sans-serif;font-weight:100;font-size:30px;text-transform:uppercase;
+                color:#333;letter-spacing:.02em}
+
+  /* ── PAGE CONTENT (the proposal) ────────────── */
+  .content h1,.content h2,.content h3,.content .h{font-family:var(--head);font-weight:800;letter-spacing:.02em;
+       text-transform:uppercase;line-height:1.1}
+  .content{font-family:var(--body);color:var(--ink)}
+
+  .hero{position:relative;background:#0d0d0d;color:#fff;overflow:hidden}
+  .hero-media{position:relative;padding-top:52%;min-height:380px}
+  .hero-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .hero-copy{padding:40px 0 46px;background:#0d0d0d}
+  .eyebrow{font-family:var(--head);font-size:12px;letter-spacing:.28em;color:var(--o);font-weight:700;margin-bottom:12px}
+  .hero h2{font-size:clamp(28px,4.6vw,48px);margin-bottom:14px}
+  .hero p{color:#c9c3ba;font-size:16.5px;max-width:660px;font-weight:300}
+  .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .btn{display:inline-block;background:var(--o);color:#fff;font-family:var(--head);font-weight:700;font-size:13.5px;
+       letter-spacing:.12em;text-transform:uppercase;padding:15px 28px;transition:background .15s}
+  .btn:hover{background:var(--o-dark)}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.45)}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+
+  .awards{background:var(--cream);border-bottom:1px solid var(--line)}
+  .awards-in{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;padding:20px 0;text-align:center}
+  .aw{font-size:12.5px;color:var(--grey)}
+  .aw b{display:block;font-family:var(--head);font-size:13.5px;color:var(--ink);letter-spacing:.06em;margin-bottom:2px}
+
+  .content section{padding:64px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 40px}
+  .sec-head h2{font-size:clamp(23px,3.2vw,34px);margin-bottom:12px}
+  .sec-head p{color:var(--grey);font-size:15.5px;font-weight:300}
+
+  .vans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .van{border:1px solid var(--line);display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;background:#fff}
+  .van:hover{box-shadow:0 8px 30px rgba(20,14,9,.10);transform:translateY(-3px)}
+  .van-img{background:var(--cream);padding:24px 16px;display:flex;align-items:center;justify-content:center;min-height:166px;position:relative}
+  .van-img img{max-height:126px;width:auto;object-fit:contain}
+  .flag{position:absolute;top:12px;left:12px;background:var(--o);color:#fff;font-family:var(--head);
+        font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 9px}
+  .van-body{padding:20px 19px 22px;display:flex;flex-direction:column;flex:1}
+  .van-body h3{font-size:20px;margin-bottom:4px}
+  .van-tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--o);font-weight:600;margin-bottom:11px}
+  .van-body p{font-size:13.5px;color:var(--grey);font-weight:300;flex:1;margin-bottom:15px;line-height:1.55}
+  .price{font-family:var(--head);font-size:12px;letter-spacing:.06em;color:var(--ink);padding-top:13px;border-top:1px solid var(--line)}
+  .price span{display:block;font-size:10px;letter-spacing:.14em;color:var(--grey);font-weight:600;margin-bottom:3px}
+
+  .reviews{background:var(--cream)}
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:20px}
+  .q{background:#fff;border:1px solid var(--line);border-top:3px solid var(--o);padding:26px 24px}
+  .q .mark{font-family:var(--head);font-size:38px;color:var(--o);line-height:.8;margin-bottom:9px}
+  .q p{font-size:14.5px;font-style:italic;color:#3a3a3a;margin-bottom:16px;line-height:1.6}
+  .q .who{font-family:var(--head);font-size:12.5px;letter-spacing:.08em}
+  .q .src{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-top:3px}
+
+  .press{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:16px;margin-top:32px}
+  .pr{border:1px solid var(--line);padding:19px;background:#fff}
+  .pr .t{font-family:var(--head);font-size:13px;line-height:1.35;margin-bottom:7px}
+  .pr .s{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--o);font-weight:600}
+
+  .dealer{background:#0d0d0d;color:#fff;text-align:center}
+  .dealer h2{font-size:clamp(23px,3.2vw,32px);margin-bottom:12px}
+  .dealer p{color:#c9c3ba;font-weight:300;max-width:560px;margin:0 auto}
+  .dealer .ph{font-family:var(--head);font-size:25px;color:var(--o);margin:18px 0 4px;letter-spacing:.04em}
+
+  /* ── OGO FOOTER (recreated) ─────────────────── */
+  .ogo-news{background:#c6c6c6;text-align:center;padding:44px 24px}
+  .ogo-news h3{font-family:'Asap',sans-serif;font-weight:100;font-size:27px;text-transform:uppercase;
+               letter-spacing:.08em;color:#222;margin-bottom:12px}
+  .ogo-news p{font-size:14px;color:#333;margin-bottom:20px}
+  .ogo-news .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:570px;margin:0 auto}
+  .ogo-news input{border:0;padding:13px 15px;font-size:13.5px;font-family:'Roboto',sans-serif;width:calc(50% - 5px)}
+  .ogo-news .wide{width:calc(70% - 5px)}
+  .ogo-news button{background:var(--ogo-orange);color:#fff;border:0;padding:13px 30px;font-size:13.5px;
+                   font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+  .ogo-foot{background:var(--ogo-dark);color:#ccc;padding:46px 0 26px;font-size:13.5px}
+  .ogo-foot .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px}
+  .ogo-foot h4{font-family:'Asap',sans-serif;font-weight:500;font-size:14px;letter-spacing:.12em;
+               text-transform:uppercase;color:#fff;margin-bottom:14px}
+  .ogo-foot a{color:#ccc;display:block;margin-bottom:7px}
+  .ogo-foot .btn-c{display:inline-block;border:1px solid #666;padding:9px 20px;font-size:12px;
+                   letter-spacing:.08em;text-transform:uppercase;margin-top:6px}
+  .ogo-copy{border-top:1px solid #33383d;margin-top:34px;padding-top:20px;font-size:12px;color:#8e959c;text-align:center}
+
+  @media(max-width:820px){
+    .ogo-nav,.ogo-search,.ogo-top .soc{display:none}
+    .hero-media{padding-top:0;min-height:0;height:220px}
+    .content section{padding:48px 0}
+  }
+</style>
+</head>
+<body>
+
+<div class="anno">In-context preview &middot; Off Grid Outfitters header &amp; footer recreated around the proposed Wonderland RV page</div>
+
+<!-- ═══ OGO HEADER (recreation) ═══ -->
+<div class="ogo-top">
+  <div class="wrap">
+    <div class="soc">f &nbsp; ▶ &nbsp; ◎ &nbsp; ✉</div>
+    <span>(02) 4648 4181</span>
+    <span>CONTACT US</span>
+    <div class="r"><span>◔ LOGIN</span><span class="ogo-cart">🛒 0</span></div>
+  </div>
+</div>
+<div class="ogo-head">
+  <div class="wrap">
+    <div class="ogo-logo">Off Grid<b>OUTFITTERS</b></div>
+    <nav class="ogo-nav">
+      <a href="#">Home</a>
+      <a href="#" class="on">Our Brands ⌄</a>
+      <a href="#">View Current Stock</a>
+      <a href="#">More ⌄</a>
+    </nav>
+    <div class="ogo-search">Search</div>
+  </div>
+</div>
+<div class="ogo-title"><div class="wrap"><h1>Wonderland RV</h1></div></div>
+
+<div class="marker">▼ everything below this line is the new page content ▼</div>
+
+<!-- ═══ PROPOSED PAGE CONTENT ═══ -->
+<div class="content">
+
+  <div class="hero">
+    <div class="hero-media">
+      <iframe src="https://www.youtube.com/embed/mZVHIMStpF4?rel=0&modestbranding=1"
+              title="2026 Wonderland RV Range" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="hero-copy">
+      <div class="wrap">
+        <div class="eyebrow">Australian made &middot; on display in Sydney</div>
+        <h2>Wonderland RV<br>at Off Grid Outfitters</h2>
+        <p>Off-road caravans with the creature comforts of a boutique hotel on wheels. See the 2026 range on display in our showroom, drive away in a new or used unit, or configure a custom build to suit exactly how you travel.</p>
+        <div class="btns">
+          <a class="btn" href="#range">See the range</a>
+          <a class="btn btn-ghost" href="tel:0246484181">Call (02) 4648 4181</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="awards">
+    <div class="wrap awards-in">
+      <div class="aw"><b>Caravan of the Year 2026</b>Judges' Choice &middot; Solara 2006</div>
+      <div class="aw"><b>Caravan of the Year 2024</b>Overall Winner &middot; XTR 2211</div>
+      <div class="aw"><b>Australian Made</b>Built in Campbellfield, Victoria</div>
+      <div class="aw"><b>Full Factory Warranty</b>Backed nationwide</div>
+    </div>
+  </div>
+
+  <section id="range">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>The 2026 Range</h2>
+        <p>Four models, built for different ways of travelling. Every one of them Australian made and ready to go off-road and off-grid.</p>
+      </div>
+      <div class="vans">
+        <div class="van">
+          <div class="van-img"><span class="flag">COTY 2026</span>
+            <img src="https://wonderlandrv.com.au/wp-content/uploads/2026/02/Solara-2026-External-White-Transparent-BG-4.webp" alt="Wonderland RV Solara composite off-road caravan" loading="lazy"></div>
+          <div class="van-body"><h3>Solara</h3><div class="van-tag">Composite</div>
+            <p>Wonderland's first off-road, composite caravan. Built tough, it's designed to withstand even the harshest Aussie environments without compromising on all of life's creature comforts.</p>
+            <div class="price"><span>Starting from</span>$156,263</div></div>
+        </div>
+        <div class="van">
+          <div class="van-img"><span class="flag">COTY 2024</span>
+            <img src="https://wonderlandrv.com.au/wp-content/uploads/2026/02/XTR-2026-External-White-Transparent-BG-4.webp" alt="Wonderland RV XTR extreme off-road caravan" loading="lazy"></div>
+          <div class="van-body"><h3>XTR</h3><div class="van-tag">Extreme off-road</div>
+            <p>The XTR is Wonderland RV's ultimate off-road caravan. Fully loaded with every imaginable luxury, it's designed for customers who want the best of the best.</p>
+            <div class="price"><span>Starting from</span>$178,445</div></div>
+        </div>
+        <div class="van">
+          <div class="van-img">
+            <img src="https://wonderlandrv.com.au/wp-content/uploads/2026/02/Hornet-2026-External-White-Transparent-BG-4.webp" alt="Wonderland RV Hornet off-road caravan" loading="lazy"></div>
+          <div class="van-body"><h3>Hornet</h3><div class="van-tag">Go further, stay longer</div>
+            <p>Hornet is designed for performance and liveability in Australia's harshest terrain. Hornet gets you to more remote places and keeps you there for longer.</p>
+            <div class="price"><span>Starting from</span>$138,561</div></div>
+        </div>
+        <div class="van">
+          <div class="van-img">
+            <img src="https://wonderlandrv.com.au/wp-content/uploads/2026/02/Amaroo-2026-External-White-Transparent-BG-4.webp" alt="Wonderland RV Amaroo classic off-road caravan" loading="lazy"></div>
+          <div class="van-body"><h3>Amaroo</h3><div class="van-tag">Classic off-road</div>
+            <p>Amaroo is geared for off-road adventures, allowing you to venture off the beaten track without compromising luxury, safety and performance.</p>
+            <div class="price"><span>Starting from</span>$117,393</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What the experts say</h2>
+        <p>Wonderland RV has been reviewed, tested and awarded by Australia's leading caravan press.</p>
+      </div>
+      <div class="quotes">
+        <div class="q"><div class="mark">&ldquo;</div>
+          <p>The Wonderland RV Hornet looks rugged on the outside, but step inside and you'll be taken aback by the sublime and superbly comfortable interior.</p>
+          <div class="who">Rod Chapman</div><div class="src">Caravan Camping Sales</div></div>
+        <div class="q"><div class="mark">&ldquo;</div>
+          <p>The quality shines as does the heavy-duty construction and appliances. They are great looking vans with enough features to get you well off the beaten track.</p>
+          <div class="who">Tim Van Duyl</div><div class="src">Caravan World</div></div>
+        <div class="q"><div class="mark">&ldquo;</div>
+          <p>What a company, fantastic family service, awesome caravans.</p>
+          <div class="who">Fabio Andrade</div><div class="src">Wonderland RV owner</div></div>
+      </div>
+      <div class="press">
+        <div class="pr"><div class="t">Solara 2006 named Judges' Choice, Caravan of the Year 2026</div><div class="s">Caravan World</div></div>
+        <div class="pr"><div class="t">XTR 2211 judged Overall Winner, Caravan of the Year 2024</div><div class="s">Caravan World</div></div>
+        <div class="pr"><div class="t">Caravan Review: Amaroo 1806 Couples Van</div><div class="s">Caravan World</div></div>
+        <div class="pr"><div class="t">Wonderland creates five-star apartment on wheels</div><div class="s">Caravan Camping Sales</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dealer">
+    <div class="wrap">
+      <h2>See them in our showroom</h2>
+      <p>Off Grid Outfitters has a range of Wonderland RV caravans on display, plus new and used units available for immediate delivery. We can also help configure a custom order to suit exactly what you need.</p>
+      <div class="ph">(02) 4648 4181</div>
+      <div class="btns" style="justify-content:center">
+        <a class="btn" href="#">Get in touch</a>
+        <a class="btn btn-ghost" href="https://wonderlandrv.com.au/" target="_blank" rel="noopener">Full range details</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="marker">▲ end of new page content ▲</div>
+
+<!-- ═══ OGO FOOTER (recreation) ═══ -->
+<div class="ogo-news">
+  <h3>Keep in touch</h3>
+  <p>Sign up to get the latest on News, Events &amp; Promo's.</p>
+  <div class="row">
+    <input placeholder="First Name"><input placeholder="Last Name">
+    <input class="wide" placeholder="Enter your email address...">
+    <button>Sign Up</button>
+  </div>
+</div>
+<div class="ogo-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Sales &amp; Service</h4>
+        <p style="margin-bottom:10px">Contact us today for any sales or service enquiries you may have.</p>
+        <p>Ph: (02) 4648 4181</p>
+        <a class="btn-c" href="#">Contact Us</a>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <a href="#">Lifestyle Campers</a>
+        <a href="#">Wonderland RV</a>
+        <a href="#">ZONE RV</a>
+        <a href="#">Rhinomax Campers</a>
+        <a href="#">Shop</a>
+      </div>
+      <div>
+        <h4>Our Location</h4>
+        <p style="margin-bottom:10px">Two showroom locations!</p>
+        <p style="margin-bottom:10px"><strong style="color:#fff">Sydney Showroom:</strong><br>23 Badgally Road, Campbelltown NSW 2560</p>
+        <p><strong style="color:#fff">Port Stephens Showroom</strong> (by appointment only):<br>12 Innovation Close, Taylors Beach NSW 2316</p>
+      </div>
+    </div>
+    <div class="ogo-copy">&copy; 2026 Off Grid Outfitters &middot; Powered by Shopify</div>
+  </div>
+</div>
+
+</body>
+</html>
