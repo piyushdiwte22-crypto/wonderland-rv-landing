@@ -1,0 +1,235 @@
+<!-- ══════════════════════════════════════════════════════════════════
+     WONDERLAND RV — page content for offgridoutfitters.com.au/pages/wonderlandrv
+     Supplied by Wonderland RV. Paste this whole block into the page's HTML view.
+     Everything is scoped inside #wlrv so it cannot affect the rest of the site.
+     ══════════════════════════════════════════════════════════════════ -->
+<div id="wlrv">
+<style>
+@import url("https://use.typekit.net/ywn7byg.css");
+
+  @font-face{font-family:'Gordita';src:url('https://wonderlandrv.com.au/wp-content/uploads/2022/11/Gordita-Light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+  @font-face{font-family:'Gordita';src:url('https://wonderlandrv.com.au/wp-content/uploads/2022/11/Gordita-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:'Gordita';src:url('https://wonderlandrv.com.au/wp-content/uploads/2022/11/Gordita-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+#wlrv{--o:#DB7627; --o-dark:#b3611e;
+    --ink:#1a1a1a; --grey:#6b655e; --line:#e4ded5; --cream:#fbf9f6;
+    --head:'aviano-sans','Archivo',Arial,sans-serif;   /* Aviano Sans 900 */
+    --body:'Gordita','Poppins',Arial,sans-serif;       /* Gordita */}
+#wlrv *{margin:0;padding:0;box-sizing:border-box}
+#wlrv{font-family:var(--body);color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+#wlrv img{max-width:100%;display:block}
+#wlrv .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+#wlrv h1,#wlrv h2,#wlrv h3,#wlrv .h{font-family:var(--head);font-weight:900;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}
+#wlrv a{color:inherit}
+#wlrv /* note bar (remove on the real build) */
+  .note{background:#1a1a1a;color:#c9c3ba;font-size:12.5px;padding:10px 24px;text-align:center;letter-spacing:.3px}
+#wlrv .note b{color:#fff}
+#wlrv /* hero */
+  .hero{position:relative;background:#0d0d0d;color:#fff;overflow:hidden}
+#wlrv .hero-media{position:relative;padding-top:52%;min-height:420px}
+#wlrv .hero-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#wlrv .hero-copy{padding:44px 0 52px;background:#0d0d0d}
+#wlrv .eyebrow{font-family:var(--head);font-size:12px;letter-spacing:.28em;color:var(--o);font-weight:900;margin-bottom:14px}
+#wlrv .hero h1{font-size:clamp(30px,5vw,54px);margin-bottom:16px}
+#wlrv .hero p{color:#c9c3ba;font-size:17px;max-width:660px;font-weight:300}
+#wlrv .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+#wlrv .btn{display:inline-block;background:var(--o);color:#fff;font-family:var(--head);font-weight:900;font-size:14px;
+       letter-spacing:.12em;text-transform:uppercase;padding:16px 30px;text-decoration:none;transition:background .15s}
+#wlrv .btn:hover{background:var(--o-dark)}
+#wlrv .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.45)}
+#wlrv .btn-ghost:hover{background:rgba(255,255,255,.1)}
+#wlrv /* award strip */
+  .awards{background:var(--cream);border-bottom:1px solid var(--line)}
+#wlrv .awards-in{display:flex;flex-wrap:wrap;gap:28px;justify-content:center;padding:22px 0;text-align:center}
+#wlrv .aw{font-size:13px;color:var(--grey);letter-spacing:.02em}
+#wlrv .aw b{display:block;font-family:var(--head);font-size:14px;color:var(--ink);letter-spacing:.06em;margin-bottom:2px}
+#wlrv /* sections */
+  section{padding:72px 0}
+#wlrv .sec-head{text-align:center;max-width:660px;margin:0 auto 46px}
+#wlrv .sec-head h2{font-size:clamp(24px,3.4vw,36px);margin-bottom:14px}
+#wlrv .sec-head p{color:var(--grey);font-size:16px;font-weight:300}
+#wlrv /* range */
+  .range{background:#fff}
+#wlrv .vans{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:22px}
+#wlrv .van{border:1px solid var(--line);display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+#wlrv .van:hover{box-shadow:0 8px 30px rgba(20,14,9,.10);transform:translateY(-3px)}
+#wlrv .van-img{background:var(--cream);padding:26px 18px;display:flex;align-items:center;justify-content:center;min-height:172px;position:relative}
+#wlrv .van-img img{max-height:130px;width:auto;object-fit:contain}
+#wlrv .flag{position:absolute;top:12px;left:12px;background:var(--o);color:#fff;font-family:var(--head);
+        font-size:10px;font-weight:900;letter-spacing:.12em;padding:5px 9px}
+#wlrv .van-body{padding:22px 20px 24px;display:flex;flex-direction:column;flex:1}
+#wlrv .van-body h3{font-size:21px;margin-bottom:4px}
+#wlrv .van-tag{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--o);font-weight:600;margin-bottom:12px}
+#wlrv .van-body p{font-size:14px;color:var(--grey);font-weight:300;flex:1;margin-bottom:16px}
+#wlrv .price{font-family:var(--head);font-size:12px;letter-spacing:.06em;color:var(--ink);padding-top:14px;border-top:1px solid var(--line)}
+#wlrv .price span{display:block;font-size:10.5px;letter-spacing:.14em;color:var(--grey);font-weight:600;margin-bottom:3px}
+#wlrv /* reviews */
+  .reviews{background:var(--cream)}
+#wlrv .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+#wlrv .q{background:#fff;border:1px solid var(--line);border-top:3px solid var(--o);padding:28px 26px}
+#wlrv .q .mark{font-family:var(--head);font-size:40px;color:var(--o);line-height:.8;margin-bottom:10px}
+#wlrv .q p{font-size:15px;color:#3a3a3a;margin-bottom:18px}
+#wlrv .q .who{font-family:var(--head);font-size:12.5px;letter-spacing:.08em}
+#wlrv .q .src{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-top:3px}
+#wlrv /* press */
+  .press{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:34px}
+#wlrv .pr{border:1px solid var(--line);padding:20px;background:#fff}
+#wlrv .pr .t{font-family:var(--head);font-size:13.5px;line-height:1.35;margin-bottom:8px}
+#wlrv .pr .s{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--o);font-weight:600}
+#wlrv /* dealer CTA */
+  .dealer{background:#0d0d0d;color:#fff;text-align:center}
+#wlrv .dealer h2{font-size:clamp(24px,3.4vw,34px);margin-bottom:14px}
+#wlrv .dealer p{color:#c9c3ba;font-weight:300;max-width:560px;margin:0 auto 8px}
+#wlrv .dealer .ph{font-family:var(--head);font-size:26px;color:var(--o);margin:20px 0 6px;letter-spacing:.04em}
+@media(max-width:700px){
+#wlrv .hero-media{padding-top:0;min-height:0;height:230px}
+#wlrv section{padding:52px 0}
+#wlrv .awards-in{gap:18px}
+}
+</style>
+<!-- HERO with the 2026 range video -->
+<div class="hero">
+  <div class="hero-media">
+    <iframe src="https://www.youtube.com/embed/mZVHIMStpF4?rel=0&modestbranding=1"
+            title="2026 Wonderland RV Range" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+  </div>
+  <div class="hero-copy">
+    <div class="wrap">
+      <img class="wl-logo" src="https://wonderlandrv.com.au/wp-content/uploads/2026/02/logo.png" alt="Wonderland RV" style="height:44px;width:auto;margin-bottom:20px">
+        <div class="eyebrow">Australian made &middot; on display in Sydney</div>
+      <h1>Wonderland RV<br>at Off Grid Outfitters</h1>
+      <p>Off-road caravans with the creature comforts of a boutique hotel on wheels. See the 2026 range on display in our showroom, drive away in a new or used unit, or configure a custom build to suit exactly how you travel.</p>
+      <div class="btns">
+        <a class="btn" href="#range">See the range</a>
+        <a class="btn btn-ghost" href="tel:0246484181">Call (02) 4648 4181</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<div class="awards">
+  <div class="wrap awards-in">
+    <div class="aw"><b>Caravan of the Year 2026</b>Judges' Choice &middot; Solara 2006</div>
+    <div class="aw"><b>Caravan of the Year 2024</b>Overall Winner &middot; XTR 2211</div>
+    <div class="aw"><b>Australian Made</b>Built in Campbellfield, Victoria</div>
+    <div class="aw"><b>Full Factory Warranty</b>Backed nationwide</div>
+  </div>
+</div>
+
+<!-- RANGE -->
+<section class="range" id="range">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The 2026 Range</h2>
+      <p>Four models, built for different ways of travelling. Every one of them Australian made and ready to go off-road and off-grid.</p>
+    </div>
+    <div class="vans">
+
+      <div class="van">
+        <div class="van-img">
+          <span class="flag">COTY 2026</span>
+          <img src="https://wonderlandrv.com.au/wp-content/uploads/2026/02/Solara-2026-External-White-Transparent-BG-4.webp" alt="Wonderland RV Solara composite off-road caravan" loading="lazy">
+        </div>
+        <div class="van-body">
+          <h3>Solara</h3>
+          <div class="van-tag">Composite</div>
+          <p>Wonderland's first off-road, composite caravan. Built tough, it's designed to withstand even the harshest Aussie environments without compromising on all of life's creature comforts.</p>
+          <div class="price"><span>Starting from</span>$156,263</div>
+        </div>
+      </div>
+
+      <div class="van">
+        <div class="van-img">
+          <span class="flag">COTY 2024</span>
+          <img src="https://wonderlandrv.com.au/wp-content/uploads/2026/02/XTR-2026-External-White-Transparent-BG-4.webp" alt="Wonderland RV XTR extreme off-road caravan" loading="lazy">
+        </div>
+        <div class="van-body">
+          <h3>XTR</h3>
+          <div class="van-tag">Extreme off-road</div>
+          <p>The XTR is Wonderland RV's ultimate off-road caravan. Fully loaded with every imaginable luxury, it's designed for customers who want the best of the best.</p>
+          <div class="price"><span>Starting from</span>$178,445</div>
+        </div>
+      </div>
+
+      <div class="van">
+        <div class="van-img">
+          <img src="https://wonderlandrv.com.au/wp-content/uploads/2026/02/Hornet-2026-External-White-Transparent-BG-4.webp" alt="Wonderland RV Hornet off-road caravan" loading="lazy">
+        </div>
+        <div class="van-body">
+          <h3>Hornet</h3>
+          <div class="van-tag">Go further, stay longer</div>
+          <p>Hornet is designed for performance and liveability in Australia's harshest terrain. Hornet gets you to more remote places and keeps you there for longer.</p>
+          <div class="price"><span>Starting from</span>$138,561</div>
+        </div>
+      </div>
+
+      <div class="van">
+        <div class="van-img">
+          <img src="https://wonderlandrv.com.au/wp-content/uploads/2026/02/Amaroo-2026-External-White-Transparent-BG-4.webp" alt="Wonderland RV Amaroo classic off-road caravan" loading="lazy">
+        </div>
+        <div class="van-body">
+          <h3>Amaroo</h3>
+          <div class="van-tag">Classic off-road</div>
+          <p>Amaroo is geared for off-road adventures, allowing you to venture off the beaten track without compromising luxury, safety and performance.</p>
+          <div class="price"><span>Starting from</span>$117,393</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What the experts say</h2>
+      <p>Wonderland RV has been reviewed, tested and awarded by Australia's leading caravan press.</p>
+    </div>
+
+    <div class="quotes">
+      <div class="q">
+        <div class="mark">&ldquo;</div>
+        <p>The Wonderland RV Hornet looks rugged on the outside, but step inside and you'll be taken aback by the sublime and superbly comfortable interior.</p>
+        <div class="who">Rod Chapman</div>
+        <div class="src">Caravan Camping Sales</div>
+      </div>
+      <div class="q">
+        <div class="mark">&ldquo;</div>
+        <p>The quality shines as does the heavy-duty construction and appliances. They are great looking vans with enough features to get you well off the beaten track.</p>
+        <div class="who">Tim Van Duyl</div>
+        <div class="src">Caravan World</div>
+      </div>
+      <div class="q">
+        <div class="mark">&ldquo;</div>
+        <p>What a company, fantastic family service, awesome caravans.</p>
+        <div class="who">Fabio Andrade</div>
+        <div class="src">Wonderland RV owner</div>
+      </div>
+    </div>
+
+    <div class="press">
+      <div class="pr"><div class="t">Solara 2006 named Judges' Choice, Caravan of the Year 2026</div><div class="s">Caravan World</div></div>
+      <div class="pr"><div class="t">XTR 2211 judged Overall Winner, Caravan of the Year 2024</div><div class="s">Caravan World</div></div>
+      <div class="pr"><div class="t">Caravan Review: Amaroo 1806 Couples Van</div><div class="s">Caravan World</div></div>
+      <div class="pr"><div class="t">Wonderland creates five-star apartment on wheels</div><div class="s">Caravan Camping Sales</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEALER CTA -->
+<section class="dealer">
+  <div class="wrap">
+    <img src="https://wonderlandrv.com.au/wp-content/uploads/2026/02/logo.png" alt="Wonderland RV" style="height:38px;width:auto;margin:0 auto 18px">
+      <h2>See them in our showroom</h2>
+    <p>Off Grid Outfitters has a range of Wonderland RV caravans on display, plus new and used units available for immediate delivery. We can also help configure a custom order to suit exactly what you need.</p>
+    <div class="ph">(02) 4648 4181</div>
+    <div class="btns" style="justify-content:center">
+      <a class="btn" href="/pages/contact-us">Get in touch</a>
+      <a class="btn btn-ghost" href="https://wonderlandrv.com.au/" target="_blank" rel="noopener">Full range details</a>
+    </div>
+  </div>
+</section>
+</div>
+<!-- ═══════════════ end Wonderland RV block ═══════════════ -->
