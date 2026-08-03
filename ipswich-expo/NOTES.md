@@ -2,21 +2,38 @@
 
 Mockup. Nothing has been deployed and nothing has been written to any live system.
 
-## Confirm these three before this goes anywhere
+## Confirm these before this goes anywhere
 
-They are all JS constants in one block at the top of the `<script>` in `index.html`. Edit there only, every
-piece of copy on the page reads from them.
+### 1. Draw size and dates
+
+One JS constant block at the top of the `<script>` in `index.html`. Every piece of copy on the page reads
+from it, including the weekday names and the word "Ten" in the terms, so nothing can desync.
 
 ```js
-var PASSES        = 10;                                    // how many double passes
-var PASSES_WORD   = "Ten";                                 // must match PASSES
-var ENTRIES_CLOSE = "Sunday 24 August 2026, 11:59pm AEST"; // assumed
-var CLOSE_SHORT   = "Sunday 24 August 2026";               // must match ENTRIES_CLOSE
-var DRAW_DATE     = "Monday 25 August 2026";               // assumed
+var PASSES            = 10;             // how many double passes
+var ENTRIES_CLOSE_ISO = "2026-08-23";   // assumed
+var CLOSE_TIME        = "11:59pm AEST";
+var DRAW_DATE_ISO     = "2026-08-24";   // assumed
 ```
 
-I picked those dates so winners get their passes before the show opens on Friday 28 August. If you draw
-later, winners have less notice.
+Dates are ISO only and the weekday is calculated, so "Sunday 23 August" can never drift out of step with
+the date. Both must land before the show opens on Friday 28 August 2026. As set: entries close Sunday
+23 August, drawn Monday 24 August, which gives winners four days notice.
+
+### 2. Two facts I could not verify
+
+- **The partner's exact trading name.** The page says "Aussie Escape Caravans" five times, which is your
+  wording. The audit KB says "Aussie Escape" in one place and "Aussie Escapes" in two others. Confirm the
+  registered trading name before this is public, it appears on their event page.
+- **Wonderland RV's ABN.** The terms name the promoter as "Wonderland RV Pty Ltd, 46 Lara Way,
+  Campbellfield VIC 3061". Australian trade-promotion practice is to include the ABN too. I did not have
+  it, so it is not on the page. Add it to the terms string.
+
+### 3. What is on the stand
+
+The page says the 2026 range is on display and shows all four models. If only some vans travel to
+Willowbank, the range section needs trimming. The section deliberately says "tell us which one you want to
+see and we will have someone ready for you at the stand" rather than promising all four are walkable.
 
 ## Where the leads go
 

@@ -109,24 +109,24 @@ p:last-child{margin-bottom:0}
 /* ============================ HERO ============================ */
 .hero{position:relative;min-height:clamp(560px,92svh,900px);display:flex;align-items:flex-end;overflow:hidden;background:#111}
 .hero-media{position:absolute;inset:0;overflow:hidden}
-/* The promo carries burned-in typography of its own. Blurring it turns the
-   footage into atmosphere instead of a second headline competing with the H1.
-   Scale covers the soft edge the blur leaves at the frame. */
+/* The promo carries burned-in typography of its own. Blur is what kills that,
+   not darkness, so lean on blur and keep the footage bright enough to read as
+   a busy outdoor event. Scale covers the soft edge the blur leaves. */
 .hero-poster{
   position:absolute;inset:0;background:#111 url(assets/hero-poster.jpg) center/cover no-repeat;
-  transform:scale(1.14);filter:blur(5px) saturate(.86) brightness(.8);
+  transform:scale(1.16);filter:blur(10px) saturate(.95) brightness(.98);
 }
 .hero-video{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.1);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.12);
   width:100vw;height:56.25vw;min-height:100%;min-width:177.78vh;border:0;pointer-events:none;
-  opacity:0;transition:opacity .9s ease;filter:blur(5px) saturate(.86) brightness(.8);
+  opacity:0;transition:opacity .9s ease;filter:blur(10px) saturate(.95) brightness(.98);
 }
 .hero-video.ready{opacity:1}
 .hero-scrim{
   position:absolute;inset:0;
   background:
-    linear-gradient(180deg,rgba(15,13,12,.82) 0%,rgba(15,13,12,.5) 34%,rgba(15,13,12,.8) 72%,rgba(15,13,12,.96) 100%),
-    linear-gradient(90deg,rgba(15,13,12,.66) 0%,rgba(15,13,12,.12) 70%);
+    linear-gradient(180deg,rgba(15,13,12,.6) 0%,rgba(15,13,12,.3) 34%,rgba(15,13,12,.68) 72%,rgba(15,13,12,.9) 100%),
+    linear-gradient(90deg,rgba(15,13,12,.58) 0%,rgba(15,13,12,0) 68%);
 }
 .hero .wrap{position:relative;z-index:2;padding-top:clamp(90px,14vh,150px);padding-bottom:clamp(38px,6vh,64px)}
 .hero-inner{max-width:760px}
@@ -253,6 +253,7 @@ p:last-child{margin-bottom:0}
 .card{background:#fff;padding:clamp(26px,3.4vw,46px);color:var(--body);position:relative}
 .card h3{margin-bottom:6px;font-family:var(--display);font-weight:900;font-size:24px;letter-spacing:-.2px;line-height:1.1}
 .card-note{font-size:15px;color:var(--label);margin-bottom:30px;line-height:1.5}
+.card-note .req{margin-right:3px}
 
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
 @media (max-width:560px){.grid2{grid-template-columns:1fr}}
@@ -296,7 +297,7 @@ fieldset{border:0;margin:26px 0 4px;padding:0;min-width:0}
 fieldset.bad .pick span{border-color:#B3401C}
 
 .card .btn-primary{width:100%;margin-top:28px;padding:22px 30px;font-size:16px}
-.terms{font-size:12.5px;line-height:1.55;color:#7C7873;margin-top:20px}
+.terms{font-size:12.5px;line-height:1.55;color:#6A6560;margin-top:20px}
 
 /* success */
 .done{display:none;text-align:center;padding:clamp(30px,4vw,54px) 0}
@@ -342,7 +343,7 @@ fieldset.bad .pick span{border-color:#B3401C}
 .ftr li{padding:4px 0}
 .ftr a{text-decoration:none}
 .ftr a:hover{color:var(--orange)}
-.ftr-legal{margin-top:clamp(34px,5vw,52px);padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.6;color:#8B8783}
+.ftr-legal{margin-top:clamp(34px,5vw,52px);padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.6;color:#6A6560}
 
 /* mobile sticky bar */
 .bar{
@@ -393,9 +394,9 @@ fieldset.bad .pick span{border-color:#B3401C}
       <p class="eyebrow on-dark">28 &ndash; 30 AUGUST 2026 &middot; WILLOWBANK RACEWAY, IPSWICH</p>
       <h1>WALK THROUGH THE 2026 RANGE IN IPSWICH</h1>
       <p class="hero-sub">
-        Wonderland RV is at the Let&rsquo;s Go Ipswich Caravan &amp; RV Expo with our Queensland partner,
-        Aussie Escape Caravans. Vans open all three days, private consultations on request, and
-        <strong id="passHero">10</strong> double passes going in a draw so you can get in free.
+        Wonderland RV is at the Let&rsquo;s Go Ipswich Caravan &amp; RV Expo with our 2026 range on display,
+        alongside our Queensland partner, Aussie Escape Caravans. Private consultations on request, and
+        <strong id="passHero">10</strong> double passes going in a draw.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#enter">GO IN THE DRAW FOR TICKETS</a>
@@ -443,14 +444,15 @@ fieldset.bad .pick span{border-color:#B3401C}
   <div class="wrap">
     <div class="night-head">
       <div>
-        <p class="eyebrow">A FIRST FOR THE REGION</p>
+        <p class="eyebrow">NEW FOR THE REGION</p>
         <h2>SATURDAY DOESN&rsquo;T STOP AT&nbsp;4</h2>
       </div>
       <div>
         <p class="night-lead">
-          Caravanning Queensland has been bringing people together for more than sixty years. This August
-          they are doing something they have never done before. For the first time, Saturday runs on into
-          the night, so you can spend the day walking through vans and stay on for the rest of it.
+          Caravanning Queensland has been running the state&rsquo;s caravan and outdoor expos for more than
+          sixty years. This August they are bringing something completely new to the region, a festival-style
+          weekend they say sets this one apart from anything they have run before. Saturday stays open until
+          8pm, so you can spend the day walking through vans and stay on for the rest of it.
         </p>
       </div>
     </div>
@@ -493,7 +495,8 @@ fieldset.bad .pick span{border-color:#B3401C}
       <h2>THE 2026 RANGE, IN THE FLESH</h2>
       <p>
         Photos only take you so far. Open the doors, sit in the lounge, measure the bunks against your kids,
-        and get straight answers on weights and build slots while you are standing in the van.
+        and get straight answers on weights and build slots while you are standing in the van. Tell us which
+        one you want to see and we will have someone ready for you at the stand.
       </p>
     </div>
 
@@ -515,14 +518,14 @@ fieldset.bad .pick span{border-color:#B3401C}
       <article class="van">
         <div class="van-img"><img src="assets/van-hornet.webp" alt="Wonderland RV Hornet off-road caravan, exterior" width="1350" height="733" loading="lazy"></div>
         <h3 class="van-name">HORNET</h3>
-        <p>Our best seller. Rugged, off-grid, and the one most families end up choosing.</p>
+        <p>Our best seller. A rugged off-grid tourer, and the one most families end up choosing.</p>
         <button class="btn btn-dark btn-sm" type="button" data-van="Hornet">I&rsquo;M AFTER THE HORNET</button>
       </article>
 
       <article class="van">
         <div class="van-img"><img src="assets/van-amaroo.webp" alt="Wonderland RV Amaroo lightweight off-road caravan, exterior" width="1350" height="756" loading="lazy"></div>
         <h3 class="van-name">AMAROO</h3>
-        <p>Lightweight, and the most affordable way into a full off-roader.</p>
+        <p>Lightweight, and an affordable way into a full off-roader.</p>
         <button class="btn btn-dark btn-sm" type="button" data-van="Amaroo">I&rsquo;M AFTER THE AMAROO</button>
       </article>
     </div>
@@ -561,7 +564,7 @@ fieldset.bad .pick span{border-color:#B3401C}
     <div class="enter-grid">
       <div>
         <p class="eyebrow on-dark">TICKET DRAW</p>
-        <h2>YOUR DAY AT THE EXPO, ON US</h2>
+        <h2>WIN YOUR DAY AT THE EXPO</h2>
         <p class="enter-lead">
           We are drawing double passes to the Let&rsquo;s Go Ipswich Caravan &amp; RV Expo. Enter below and
           tell us what you are chasing, so we have something useful ready for you when you get there.
@@ -596,33 +599,33 @@ fieldset.bad .pick span{border-color:#B3401C}
             <div class="grid2">
               <div class="fld" id="f-first">
                 <label for="firstname">First name <span class="req">*</span></label>
-                <input type="text" id="firstname" name="firstname" autocomplete="given-name">
-                <span class="err">Please enter your first name.</span>
+                <input type="text" id="firstname" name="firstname" autocomplete="given-name" aria-required="true" aria-describedby="err-firstname">
+                <span class="err" id="err-firstname" role="alert">Please enter your first name.</span>
               </div>
               <div class="fld" id="f-last">
                 <label for="lastname">Last name <span class="req">*</span></label>
-                <input type="text" id="lastname" name="lastname" autocomplete="family-name">
-                <span class="err">Please enter your last name.</span>
+                <input type="text" id="lastname" name="lastname" autocomplete="family-name" aria-required="true" aria-describedby="err-lastname">
+                <span class="err" id="err-lastname" role="alert">Please enter your last name.</span>
               </div>
             </div>
 
             <div class="grid2">
               <div class="fld" id="f-email">
                 <label for="email">Email <span class="req">*</span></label>
-                <input type="email" id="email" name="email" autocomplete="email" inputmode="email">
-                <span class="err">Please enter a valid email address.</span>
+                <input type="email" id="email" name="email" autocomplete="email" inputmode="email" aria-required="true" aria-describedby="err-email">
+                <span class="err" id="err-email" role="alert">Please enter a valid email address.</span>
               </div>
               <div class="fld" id="f-phone">
                 <label for="phone">Phone <span class="req">*</span></label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="0412 345 678">
-                <span class="err">Please enter a valid Australian mobile or landline.</span>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="0412 345 678" aria-required="true" aria-describedby="err-phone">
+                <span class="err" id="err-phone" role="alert">Please enter a valid Australian mobile or landline.</span>
               </div>
             </div>
 
             <div class="grid2">
               <div class="fld" id="f-state">
                 <label for="state">State <span class="req">*</span></label>
-                <select id="state" name="field[27]">
+                <select id="state" name="field[27]" aria-required="true" aria-describedby="err-state">
                   <option value="">Choose your state</option>
                   <option>Queensland</option>
                   <option>New South Wales / ACT</option>
@@ -631,13 +634,12 @@ fieldset.bad .pick span{border-color:#B3401C}
                   <option>Western Australia</option>
                   <option>Northern Territory</option>
                   <option>Tasmania</option>
-                  <option>New Zealand</option>
                 </select>
-                <span class="err">Please choose your state.</span>
+                <span class="err" id="err-state" role="alert">Please choose your state.</span>
               </div>
               <div class="fld" id="f-budget">
                 <label for="budget">Budget for your dream caravan <span class="req">*</span></label>
-                <select id="budget">
+                <select id="budget" aria-required="true" aria-describedby="err-budget">
                   <option value="">Choose a range</option>
                   <option>Under $100,000</option>
                   <option>$100,000 - $120,000</option>
@@ -646,7 +648,7 @@ fieldset.bad .pick span{border-color:#B3401C}
                   <option>$160,000+</option>
                   <option>Not sure yet</option>
                 </select>
-                <span class="err">Please choose a budget range.</span>
+                <span class="err" id="err-budget" role="alert">Please choose a budget range.</span>
               </div>
             </div>
 
@@ -665,7 +667,7 @@ fieldset.bad .pick span{border-color:#B3401C}
               <legend class="leg">What can we sort for you? <span class="req">*</span></legend>
               <div class="picks">
                 <label class="pick">
-                  <input type="radio" name="want" value="Ticket draw">
+                  <input type="radio" name="want" value="Ticket draw" aria-required="true" aria-describedby="err-want">
                   <span>Tickets to the show</span>
                 </label>
                 <label class="pick">
@@ -677,7 +679,7 @@ fieldset.bad .pick span{border-color:#B3401C}
                   <span>Both, please</span>
                 </label>
               </div>
-              <span class="err">Please choose one.</span>
+              <span class="err" id="err-want" role="alert">Please choose one.</span>
             </fieldset>
 
             <button class="btn btn-primary" type="submit" id="submitBtn">ENTER THE DRAW</button>
@@ -687,7 +689,7 @@ fieldset.bad .pick span{border-color:#B3401C}
         </div>
 
         <!-- SUCCESS -->
-        <div class="done" id="done" role="status" aria-live="polite">
+        <div class="done" id="done" role="status" aria-live="polite" tabindex="-1">
           <div class="done-tick" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none"><path d="M3 12.5l6 6L21 5.5" stroke="#fff" stroke-width="2.6"/></svg>
           </div>
@@ -725,7 +727,7 @@ fieldset.bad .pick span{border-color:#B3401C}
         <h4>THE SHOW</h4>
         <ul>
           <li><a href="https://www.caravanqld.com.au/show/2026-lets-go-ipswich-caravan-rv-expo/">Event details</a></li>
-          <li><a href="https://www.caravanqld.com.au/show/2026-lets-go-ipswich-caravan-rv-expo/">Buy tickets</a></li>
+          <li><a href="https://www.caravanqld.com.au/show/2026-lets-go-ipswich-caravan-rv-expo/">Tickets and pricing</a></li>
           <li><a href="https://www.caravanqld.com.au/show/2026-lets-go-ipswich-caravan-rv-expo/">Onsite camping</a></li>
           <li><a href="https://maps.google.com/?q=38+Champions+Way+Willowbank+QLD">Getting there</a></li>
         </ul>
@@ -760,11 +762,34 @@ fieldset.bad .pick span{border-color:#B3401C}
    PLACEHOLDERS - confirm with the client, then edit here only.
    ================================================================ */
 var PASSES        = 10;
-var PASSES_WORD   = "Ten";
-var ENTRIES_CLOSE = "Sunday 24 August 2026, 11:59pm AEST";
-var CLOSE_SHORT   = "Sunday 24 August 2026";
-var DRAW_DATE     = "Monday 25 August 2026";
+/* ISO dates only. The weekday shown on the page is derived from these, so it
+   can never contradict the date. Both must fall before the show opens on
+   Friday 28 August 2026. */
+var ENTRIES_CLOSE_ISO = "2026-08-23";
+var CLOSE_TIME        = "11:59pm AEST";
+var DRAW_DATE_ISO     = "2026-08-24";
 /* ================================================================ */
+
+/* number to word, so the terms line can never desync from PASSES */
+var WORDS = ["zero","one","two","three","four","five","six","seven","eight","nine","ten",
+             "eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen",
+             "eighteen","nineteen","twenty"];
+function inWords(n){
+  var w = WORDS[n];
+  return w ? w.charAt(0).toUpperCase() + w.slice(1) : String(n);
+}
+function longDate(iso){
+  var p = iso.split("-");
+  var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+  var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var mons = ["January","February","March","April","May","June","July",
+              "August","September","October","November","December"];
+  return days[d.getUTCDay()] + " " + d.getUTCDate() + " " + mons[d.getUTCMonth()] + " " + d.getUTCFullYear();
+}
+var PASSES_WORD   = inWords(PASSES);
+var CLOSE_SHORT   = longDate(ENTRIES_CLOSE_ISO);
+var ENTRIES_CLOSE = CLOSE_SHORT + ", " + CLOSE_TIME;
+var DRAW_DATE     = longDate(DRAW_DATE_ISO);
 
 var VIDEO_ID = "XYQm7BmRkF8";
 var $  = function(s,r){ return (r||document).querySelector(s); };
@@ -778,10 +803,14 @@ $("#closeTxt").textContent = CLOSE_SHORT;
 $("#drawTxt").textContent  = DRAW_DATE;
 
 $("#termsTxt").textContent =
-  "Entries close " + ENTRIES_CLOSE + ". " + PASSES_WORD + " double passes are drawn at random on " +
-  DRAW_DATE + " and winners are contacted by email and SMS. Open to Australian residents aged 18 and over. " +
-  "Entry is free and no purchase is necessary. Children 17 and under enter the expo free at the gate. " +
-  "By entering you agree to Wonderland RV and Aussie Escape Caravans contacting you about your enquiry.";
+  "Entries close " + ENTRIES_CLOSE + ". " + PASSES_WORD + " double passes to the 2026 Let’s Go Ipswich " +
+  "Caravan & RV Expo are drawn at random on " + DRAW_DATE + ", and winners are contacted by email and SMS. " +
+  "Each double pass admits two adults for one day, valued at $32 based on the online adult price. Passes " +
+  "are not transferable and cannot be exchanged for cash. If a winner cannot be reached within 48 hours, " +
+  "that pass is redrawn. Open to Australian residents aged 18 and over. Entry is free and no purchase is " +
+  "necessary. Children 17 and under enter the expo free. The promoter is Wonderland RV Pty Ltd, 46 Lara Way, " +
+  "Campbellfield VIC 3061. By entering you agree to Wonderland RV and Aussie Escape Caravans contacting you " +
+  "about your enquiry and adding you to product updates, which you can unsubscribe from at any time.";
 
 $("#legalTxt").textContent =
   "Wonderland RV is an exhibitor at the 2026 Let’s Go Ipswich Caravan & RV Expo, 28 to 30 August 2026 at " +
@@ -825,7 +854,14 @@ $("#legalTxt").textContent =
   closeBtn.addEventListener("click", close);
   lb.addEventListener("click", function(e){ if(e.target === lb){ close(); } });
   document.addEventListener("keydown", function(e){
-    if(e.key === "Escape" && lb.classList.contains("on")){ close(); }
+    if(!lb.classList.contains("on")){ return; }
+    if(e.key === "Escape"){ close(); return; }
+    /* aria-modal alone does not stop Tab walking into the page behind, and the
+       only focusable control in here is the close button */
+    if(e.key === "Tab"){
+      e.preventDefault();
+      closeBtn.focus();
+    }
   });
 })();
 
@@ -843,6 +879,7 @@ $$("[data-want]").forEach(function(a){
   a.addEventListener("click", function(){
     var want = a.getAttribute("data-want");
     $$("input[name=want]").forEach(function(r){ if(r.value === want){ r.checked = true; } });
+    syncSubmitLabel();
   });
 });
 
@@ -852,23 +889,35 @@ $$("[data-want]").forEach(function(a){
 var form = $("#entryForm");
 function mark(id, bad){
   var el = document.getElementById(id);
-  if(el){ el.classList.toggle("bad", !!bad); }
+  if(!el){ return; }
+  el.classList.toggle("bad", !!bad);
+  var field = el.querySelector("input,select");
+  if(field){ field.setAttribute("aria-invalid", bad ? "true" : "false"); }
 }
+/* one rule per field, so the live listener and the submit check can never
+   disagree about what counts as valid */
+var RULES = {
+  "f-first":  function(){ return !!$("#firstname").value.trim(); },
+  "f-last":   function(){ return !!$("#lastname").value.trim(); },
+  "f-email":  function(){ return validEmail($("#email").value); },
+  "f-phone":  function(){ return validPhone($("#phone").value); },
+  "f-state":  function(){ return !!$("#state").value; },
+  "f-budget": function(){ return !!$("#budget").value; },
+  "f-want":   function(){ return $$("input[name=want]").some(function(r){ return r.checked; }); }
+};
 function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }
-function validPhone(v){ return v.replace(/[^\d]/g, "").length >= 8; }
+/* An Australian number is +61 followed by exactly 9 digits, for both mobile
+   (4xx xxx xxx) and landline (area digit + 8). Anything else would pass
+   ActiveCampaign's format check but reach the dealer undialable. */
+function validPhone(v){ return /^\+61[2-9]\d{8}$/.test(toE164(v)); }
 
 function validate(){
-  var ok = true, first = null;
-  function fail(id){ ok = false; mark(id, true); if(!first){ first = id; } }
-
-  if(!$("#firstname").value.trim()){ fail("f-first"); } else { mark("f-first", false); }
-  if(!$("#lastname").value.trim()){  fail("f-last");  } else { mark("f-last", false); }
-  if(!validEmail($("#email").value)){ fail("f-email"); } else { mark("f-email", false); }
-  if(!validPhone($("#phone").value)){ fail("f-phone"); } else { mark("f-phone", false); }
-  if(!$("#state").value){  fail("f-state");  } else { mark("f-state", false); }
-  if(!$("#budget").value){ fail("f-budget"); } else { mark("f-budget", false); }
-  if(!$$("input[name=want]").some(function(r){ return r.checked; })){ fail("f-want"); }
-  else { mark("f-want", false); }
+  var first = null;
+  Object.keys(RULES).forEach(function(id){
+    var ok = RULES[id]();
+    mark(id, !ok);
+    if(!ok && !first){ first = id; }
+  });
 
   if(first){
     var node = document.getElementById(first);
@@ -878,26 +927,42 @@ function validate(){
       setTimeout(function(){ focusable.focus({ preventScroll: true }); }, reduced ? 0 : 350);
     }
   }
-  return ok;
+  return !first;
 }
-["#firstname","#lastname","#email","#phone","#state","#budget"].forEach(function(sel){
-  var el = $(sel);
-  el.addEventListener("change", function(){
-    if(el.value.trim()){ mark(el.closest(".fld").id, false); }
-  });
+/* clear an error only once the field is actually valid, and do it as the user
+   types rather than on blur */
+[["#firstname","f-first"],["#lastname","f-last"],["#email","f-email"],
+ ["#phone","f-phone"],["#state","f-state"],["#budget","f-budget"]].forEach(function(p){
+  var el = $(p[0]);
+  function recheck(){ if(RULES[p[1]]()){ mark(p[1], false); } }
+  el.addEventListener("input", recheck);
+  el.addEventListener("change", recheck);
 });
 $$("input[name=want]").forEach(function(r){
-  r.addEventListener("change", function(){ mark("f-want", false); });
+  r.addEventListener("change", function(){ mark("f-want", false); syncSubmitLabel(); });
 });
+
+/* a consult-only enquiry is not entering a draw, so the button must not say so */
+function syncSubmitLabel(){
+  var checked = $$("input[name=want]").filter(function(r){ return r.checked; })[0];
+  var consultOnly = checked && checked.value === "Private consultation";
+  $("#submitBtn").textContent = consultOnly ? "REQUEST MY CONSULT" : "ENTER THE DRAW";
+}
 
 /* ---------- phone to +61, matching the existing landing page ---------- */
 function toE164(v){
-  var d = v.replace(/[^\d+]/g, "");
-  if(d.indexOf("+") === 0){ return d; }
-  d = d.replace(/\D/g, "");
-  if(d.indexOf("61") === 0 && d.length >= 11){ return "+" + d; }
+  var raw  = String(v).trim();
+  var plus = raw.indexOf("+") === 0;
+  var d    = raw.replace(/\D/g, "");
+  /* strip an international access code typed instead of "+" (0061...) */
+  if(!plus && d.indexOf("00") === 0){ d = d.slice(2); }
+  if(d.indexOf("61") === 0){
+    var rest = d.slice(2);
+    /* "+61 (0) 412..." is very common and the trunk 0 must go */
+    if(rest.indexOf("0") === 0){ rest = rest.slice(1); }
+    return "+61" + rest;
+  }
   if(d.indexOf("0") === 0){ return "+61" + d.slice(1); }
-  if(d.length === 9){ return "+61" + d; }
   return "+61" + d;
 }
 
@@ -956,7 +1021,7 @@ function showDone(a){
   var consultOnly = (a.want === "Private consultation");
 
   $("#doneHead").textContent = consultOnly
-    ? "THANKS, YOU’RE BOOKED IN"
+    ? "THANKS, WE’VE GOT YOUR REQUEST"
     : "CONGRATULATIONS, YOU’RE IN THE DRAW";
 
   var msg = $("#doneMsg");
@@ -992,8 +1057,13 @@ function showDone(a){
 
   $("#formLive").classList.add("off");
   $("#done").classList.add("on");
+  /* the submit button just disappeared with the form, so move focus to the
+     panel rather than letting it fall back to <body> */
+  $("#done").focus({ preventScroll: true });
   $("#done").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
-  fireConfetti();
+  /* let the smooth scroll land first, so the burst happens over the panel
+     rather than over whatever the user was looking at when they submitted */
+  setTimeout(fireConfetti, reduced ? 0 : 550);
 }
 
 /* ================================================================
