@@ -406,28 +406,31 @@ body.in-phone-preview .devtoggle{display:none}
    does not turn into a long scroll. Desktop grids are untouched.
    ======================================================================== */
 @media (max-width:700px){
+  /* Slides are 78vw and snap to CENTER, with matching inline padding so the
+     first and last cards can centre too. Fixed vw sizing, because a percentage
+     flex-basis would resolve against the padded content box and shrink. */
   .swipe{
     display:flex;flex-wrap:nowrap;gap:0;
     overflow-x:auto;overflow-y:hidden;
     scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
     scrollbar-width:none;margin-inline:calc(var(--gut) * -1);
-    padding-inline:var(--gut);
+    padding-inline:11vw;
   }
   .swipe::-webkit-scrollbar{display:none}
   .swipe > *{
-    flex:0 0 78%;scroll-snap-align:start;
+    flex:0 0 78vw;scroll-snap-align:center;
     border-top:0 !important;border-left:0 !important;
   }
   .swipe > * + *{border-left:1px solid currentColor !important;opacity:1}
   /* facts sit on ink, the other two on light */
   .facts .swipe > * + *{border-left-color:rgba(255,255,255,.15) !important}
   .prog.swipe > * + *,.vans.swipe > * + *{border-left-color:var(--line) !important}
-  .facts .swipe > *{padding:26px 22px 26px 0}
-  .prog.swipe > *{padding:22px 20px 26px 0}
-  .vans.swipe{gap:1px;background:transparent;border:0}
-  .vans.swipe > *{flex:0 0 82%;border:1px solid var(--line) !important;margin-right:12px}
+  .facts .swipe > *{padding:26px 20px}
+  .prog.swipe > *{padding:22px 20px 26px}
+  .vans.swipe{gap:12px;background:transparent;border:0;padding-inline:9vw}
+  .vans.swipe > *{flex:0 0 82vw;border:1px solid var(--line) !important}
   .swipe-hint{
-    display:flex;align-items:center;gap:8px;margin-top:14px;
+    display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;
     font-size:12px;letter-spacing:1px;font-weight:500;color:var(--label);
   }
   .facts .swipe-hint{color:rgba(255,255,255,.6)}
