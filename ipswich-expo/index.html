@@ -75,9 +75,11 @@ p:last-child{margin-bottom:0}
   font-family:var(--display);font-weight:900;font-size:15px;letter-spacing:.4px;
   padding:19px 30px;border:1px solid transparent;border-radius:0;
   text-decoration:none;cursor:pointer;text-align:center;
-  transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease,
+             transform 160ms cubic-bezier(.23,1,.32,1);
   -webkit-appearance:none;appearance:none;
 }
+.btn:active{transform:scale(.97)}
 .btn-primary{background:var(--orange);color:#fff}
 .btn-primary:hover,.btn-primary:focus-visible{background:var(--brown);color:#fff}
 .btn-primary[disabled]{opacity:.6;cursor:default}
@@ -86,6 +88,15 @@ p:last-child{margin-bottom:0}
 .btn-dark{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn-dark:hover,.btn-dark:focus-visible{background:var(--ink);color:#fff}
 .btn-sm{padding:14px 20px;font-size:13px}
+/* touch devices fire :hover on tap and it sticks; keep hover styling for
+   pointers that can actually hover */
+@media (hover:none){
+  .btn-primary:hover{background:var(--orange);color:#fff}
+  .btn-ghost:hover{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+  .btn-dark:hover{background:transparent;color:var(--ink)}
+  .pick span:hover{border-color:#CFC9C4}
+  .devtoggle:hover{background:var(--ink)}
+}
 
 /* ---------- phone brevity ----------
    Every section stays on a phone, but the long-form copy is swapped for a
@@ -130,7 +141,7 @@ p:last-child{margin-bottom:0}
 .hero-video{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.35);
   width:100vw;height:56.25vw;min-height:100%;min-width:177.78vh;border:0;pointer-events:none;
-  opacity:0;transition:opacity .6s ease;
+  opacity:0;transition:opacity .6s cubic-bezier(.23,1,.32,1);
 }
 .hero-video.ready{opacity:1}
 .hero-scrim{position:absolute;inset:0;background:rgba(0,0,0,.1)}
@@ -317,7 +328,8 @@ fieldset.bad .pick span{border-color:#B3401C}
 
 /* success */
 .done{display:none;text-align:center;padding:clamp(30px,4vw,54px) 0}
-.done.on{display:block}
+.done.on{display:block;animation:panelIn .3s cubic-bezier(.23,1,.32,1)}
+@keyframes panelIn{from{opacity:0;transform:translateY(10px)}}
 .form-live.off{display:none}
 .done-tick{
   width:72px;height:72px;margin:0 auto 26px;background:var(--orange);
@@ -459,7 +471,7 @@ body.in-phone-preview .devtoggle{display:none}
   .wiz{display:flex}
   .wiz-nav{display:flex}
   .step{display:none}
-  .step.on{display:block}
+  .step.on{display:block;animation:panelIn .25s cubic-bezier(.23,1,.32,1)}
   .card .btn-primary#submitBtn{display:none;margin-top:24px}
   .card.on-last .btn-primary#submitBtn{display:flex}
   .card.on-last #wizNext{display:none}
