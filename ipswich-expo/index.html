@@ -87,6 +87,14 @@ p:last-child{margin-bottom:0}
 .btn-dark:hover,.btn-dark:focus-visible{background:var(--ink);color:#fff}
 .btn-sm{padding:14px 20px;font-size:13px}
 
+/* ---------- phone brevity ----------
+   Every section stays on a phone, but the long-form copy is swapped for a
+   short version so the page does not run on. .sm-only / .sm-hide are the pair. */
+.sm-only{display:none}
+@media (max-width:700px){
+  .sm-only{display:block}
+  .sm-hide{display:none}
+}
 :focus-visible{outline:2px solid var(--orange);outline-offset:3px}
 
 /* ============================ HEADER ============================ */
@@ -117,10 +125,12 @@ p:last-child{margin-bottom:0}
 .hero-poster{
   position:absolute;inset:0;background:#111 url(assets/hero-poster.jpg) center/cover no-repeat;
 }
+/* Scaled up so the player's own title bar and watermark fall outside the
+   visible crop. Without it YouTube's chrome sits over the top of the hero. */
 .hero-video{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.35);
   width:100vw;height:56.25vw;min-height:100%;min-width:177.78vh;border:0;pointer-events:none;
-  opacity:0;transition:opacity .9s ease;
+  opacity:0;transition:opacity .6s ease;
 }
 .hero-video.ready{opacity:1}
 .hero-scrim{position:absolute;inset:0;background:rgba(0,0,0,.1)}
@@ -137,19 +147,7 @@ p:last-child{margin-bottom:0}
   padding-top:22px;border-top:1px solid rgba(255,255,255,.22);
 }
 
-/* sound button */
-.hero-play{
-  position:absolute;right:var(--gut);bottom:clamp(38px,6vh,64px);z-index:3;
-  display:inline-flex;align-items:center;gap:12px;
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.5);color:#fff;
-  padding:13px 20px;font-family:var(--display);font-weight:900;font-size:12px;letter-spacing:.6px;
-  cursor:pointer;border-radius:0;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  transition:background-color .2s ease,color .2s ease;
-}
-.hero-play:hover,.hero-play:focus-visible{background:#fff;color:var(--ink)}
-.hero-play .tri{width:0;height:0;border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
 @media (max-width:860px){
-  .hero-play{position:static;margin:0 var(--gut) 20px;width:calc(100% - (2 * var(--gut)));justify-content:center}
   /* clear the 66px sticky bar so the lower CTA is never sliced by it */
   .hero{flex-direction:column;justify-content:flex-end;align-items:stretch;padding-bottom:20px}
   .hero .wrap{padding-top:44px;padding-bottom:24px}
@@ -181,8 +179,11 @@ p:last-child{margin-bottom:0}
 
 /* ============================ NIGHT ============================ */
 .night{background:#fff;color:var(--body)}
-.night h2{color:var(--ink);max-width:20ch;margin-bottom:26px}
-.night-lead{max-width:60ch;font-size:clamp(17px,1.5vw,19px);line-height:1.6}
+/* this is the page h1, sized as a section heading so nothing shifts */
+.night h1{color:var(--ink);max-width:20ch;margin-bottom:26px;font-size:clamp(30px,4.4vw,54px);text-wrap:balance}
+.night-lead{max-width:60ch;font-size:clamp(17px,1.5vw,19px);line-height:1.6;margin-bottom:18px}
+.night-lead:last-child{margin-bottom:0}
+.night-lead strong{font-weight:500;color:var(--ink)}
 .night-head{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,72px);align-items:start;margin-bottom:clamp(40px,6vw,64px)}
 @media (max-width:860px){.night-head{grid-template-columns:1fr;gap:22px}}
 .prog{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
@@ -300,7 +301,19 @@ fieldset{border:0;margin:26px 0 4px;padding:0;min-width:0}
 fieldset.bad .pick span{border-color:#B3401C}
 
 .card .btn-primary{width:100%;margin-top:28px;padding:22px 30px;font-size:16px}
-.terms{font-size:12.5px;line-height:1.55;color:#6A6560;margin-top:20px}
+.terms{font-size:12.5px;line-height:1.55;color:#6A6560;margin-top:12px}
+/* the terms are the longest block on the page, so on a phone they sit behind a
+   summary. Forced open with the summary hidden on anything wider. */
+.terms-wrap{margin-top:20px}
+.terms-wrap summary{
+  display:none;cursor:pointer;list-style:none;
+  font-size:13px;font-weight:500;color:var(--label);
+  padding:12px 0;border-top:1px solid var(--line);
+}
+.terms-wrap summary::-webkit-details-marker{display:none}
+.terms-wrap summary::after{content:" +";color:var(--orange)}
+.terms-wrap[open] summary::after{content:" \2013";color:var(--orange)}
+@media (max-width:700px){.terms-wrap summary{display:block}}
 
 /* success */
 .done{display:none;text-align:center;padding:clamp(30px,4vw,54px) 0}
@@ -322,17 +335,6 @@ fieldset.bad .pick span{border-color:#B3401C}
 #confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:200;display:none}
 #confetti.on{display:block}
 
-/* ============================ VIDEO LIGHTBOX ============================ */
-.lb{position:fixed;inset:0;z-index:300;background:rgba(12,10,9,.94);display:none;align-items:center;justify-content:center;padding:var(--gut)}
-.lb.on{display:flex}
-.lb-inner{width:100%;max-width:1080px;aspect-ratio:16/9;position:relative}
-.lb-inner iframe{width:100%;height:100%;border:0}
-.lb-close{
-  position:absolute;top:-52px;right:0;background:transparent;border:1px solid rgba(255,255,255,.5);
-  color:#fff;font-family:var(--display);font-weight:900;font-size:12px;letter-spacing:.6px;
-  padding:11px 18px;cursor:pointer;border-radius:0;
-}
-.lb-close:hover{background:#fff;color:var(--ink)}
 
 /* ============================ FOOTER ============================ */
 .ftr{background:#fff;border-top:1px solid var(--line);padding:clamp(44px,6vw,64px) 0 130px}
@@ -437,13 +439,8 @@ body.in-phone-preview .devtoggle{display:none}
 
   <div class="wrap">
     <div class="hero-inner">
-      <p class="eyebrow on-dark">28 &ndash; 30 AUGUST 2026 &middot; WILLOWBANK RACEWAY, IPSWICH</p>
-      <h1>WALK THROUGH THE 2026 RANGE IN IPSWICH</h1>
-      <p class="hero-sub">
-        Wonderland RV is at the Let&rsquo;s Go Ipswich Caravan &amp; RV Expo with our 2026 range on display,
-        alongside our Queensland partner, Aussie Escape Caravans. Private consultations on request, and
-        <strong id="passHero">10</strong> double passes going in a draw.
-      </p>
+      <!-- Nothing of ours is set over the footage: the promo carries its own
+           burned-in titles. The page heading lives in the overview section. -->
       <div class="hero-cta">
         <a class="btn btn-primary" href="#enter">GO IN THE DRAW FOR TICKETS</a>
         <a class="btn btn-ghost" href="#enter" data-want="Private consultation">BOOK A PRIVATE CONSULT</a>
@@ -451,14 +448,10 @@ body.in-phone-preview .devtoggle{display:none}
       <div class="hero-trust">
         <span>AUSTRALIAN MADE</span>
         <span>CUSTOM BUILT TO ORDER</span>
-        <span>3 YEAR FACTORY WARRANTY</span>
       </div>
     </div>
   </div>
 
-  <button class="hero-play" type="button" id="playBtn">
-    <span class="tri" aria-hidden="true"></span> WATCH THE SHOW PROMO
-  </button>
 </section>
 
 <!-- ============================ FACTS ============================ -->
@@ -491,14 +484,23 @@ body.in-phone-preview .devtoggle{display:none}
     <div class="night-head">
       <div>
         <p class="eyebrow">NEW FOR THE REGION</p>
-        <h2>SATURDAY DOESN&rsquo;T STOP AT&nbsp;4</h2>
+        <h1>SATURDAY DOESN&rsquo;T STOP AT&nbsp;4</h1>
       </div>
       <div>
         <p class="night-lead">
+          Wonderland RV is at the Let&rsquo;s Go Ipswich Caravan &amp; RV Expo with our 2026 range on display,
+          alongside our Queensland partner, Aussie Escape Caravans. Private consultations on request, and
+          <strong id="passHero">10</strong> double passes going in a draw.
+        </p>
+        <p class="night-lead sm-hide">
           Caravanning Queensland has been running the state&rsquo;s caravan and outdoor expos for more than
           sixty years. This August they are bringing something completely new to the region, a festival-style
           weekend they say sets this one apart from anything they have run before. Saturday stays open until
           8pm, so you can spend the day walking through vans and stay on for the rest of it.
+        </p>
+        <p class="night-lead sm-only">
+          Caravanning Queensland calls this one completely new for the region. Saturday stays open until 8pm,
+          so you can walk through vans by day and stay on for the night.
         </p>
       </div>
     </div>
@@ -507,27 +509,27 @@ body.in-phone-preview .devtoggle{display:none}
       <div class="prog-item">
         <span class="prog-num">01</span>
         <h3>Saturday night fireworks</h3>
-        <p>Gates stay open until 8pm on the Saturday.</p>
+        <p class="sm-hide">Gates stay open until 8pm on the Saturday.</p>
       </div>
       <div class="prog-item">
         <span class="prog-num">02</span>
         <h3>Daily motocross shows</h3>
-        <p>Running every day of the expo.</p>
+        <p class="sm-hide">Running every day of the expo.</p>
       </div>
       <div class="prog-item">
         <span class="prog-num">03</span>
         <h3>Free live music</h3>
-        <p>Queensland bands and emerging artists across the weekend.</p>
+        <p class="sm-hide">Queensland bands and emerging artists across the weekend.</p>
       </div>
       <div class="prog-item">
         <span class="prog-num">04</span>
         <h3>Camp onsite</h3>
-        <p>Stay at the raceway. All campers must be fully self contained.</p>
+        <p class="sm-hide">Stay at the raceway. All campers must be fully self contained.</p>
       </div>
       <div class="prog-item">
         <span class="prog-num">05</span>
         <h3>VANSafe masterclasses</h3>
-        <p>Talking Towing on GVM, GCM, ATM, tare and towball mass.</p>
+        <p class="sm-hide">Talking Towing on GVM, GCM, ATM, tare and towball mass.</p>
       </div>
     </div>
   </div>
@@ -539,10 +541,13 @@ body.in-phone-preview .devtoggle{display:none}
     <div class="sec-head">
       <p class="eyebrow">ON DISPLAY WITH AUSSIE ESCAPE CARAVANS</p>
       <h2>THE 2026 RANGE, IN THE FLESH</h2>
-      <p>
+      <p class="sm-hide">
         Photos only take you so far. Open the doors, sit in the lounge, measure the bunks against your kids,
         and get straight answers on weights and build slots while you are standing in the van. Tell us which
         one you want to see and we will have someone ready for you at the stand.
+      </p>
+      <p class="sm-only">
+        Tell us which one you want to see and we will have someone ready for you at the stand.
       </p>
     </div>
 
@@ -585,9 +590,13 @@ body.in-phone-preview .devtoggle{display:none}
       <div>
         <p class="eyebrow">AWAY FROM THE CROWD</p>
         <h2>BOOK A PRIVATE CONSULT</h2>
-        <p>
+        <p class="sm-hide">
           Show floors get busy, and the questions that matter are hard to ask over a queue. Tell us you want
           a private consultation and we will lock in a quiet time with someone who knows the builds.
+        </p>
+        <p class="sm-only">
+          Show floors get busy. Ask for a private consult and we will lock in a quiet time with someone who
+          knows the builds.
         </p>
         <ul>
           <li>Bring your tow vehicle details and we will work through the weights with you.</li>
@@ -611,9 +620,12 @@ body.in-phone-preview .devtoggle{display:none}
       <div>
         <p class="eyebrow on-dark">TICKET DRAW</p>
         <h2>WIN YOUR DAY AT THE EXPO</h2>
-        <p class="enter-lead">
+        <p class="enter-lead sm-hide">
           We are drawing double passes to the Let&rsquo;s Go Ipswich Caravan &amp; RV Expo. Enter below and
           tell us what you are chasing, so we have something useful ready for you when you get there.
+        </p>
+        <p class="enter-lead sm-only">
+          Enter below and tell us what you are chasing, so we have something ready for you at the stand.
         </p>
         <div class="prize">
           <span class="prize-n" id="passBig">10</span>
@@ -732,7 +744,10 @@ body.in-phone-preview .devtoggle{display:none}
 
             <button class="btn btn-primary" type="submit" id="submitBtn">ENTER THE DRAW</button>
 
-            <p class="terms" id="termsTxt"></p>
+            <details class="terms-wrap" id="termsWrap">
+              <summary>Draw terms</summary>
+              <p class="terms" id="termsTxt"></p>
+            </details>
           </form>
         </div>
 
@@ -788,15 +803,6 @@ body.in-phone-preview .devtoggle{display:none}
 <div class="bar">
   <a class="btn btn-dark" href="tel:+61386920032">CALL US</a>
   <a class="btn btn-primary" href="#enter">GO IN THE DRAW</a>
-</div>
-
-<!-- video lightbox -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Show promo video">
-  <div class="lb-inner">
-    <button class="lb-close" type="button" id="lbClose">CLOSE</button>
-    <iframe id="lbFrame" title="2026 Let&rsquo;s Go Ipswich Caravan and RV Expo promo"
-      allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
-  </div>
 </div>
 
 
@@ -884,6 +890,17 @@ $("#legalTxt").textContent =
   "Event times, program and ticket prices are set by the organiser and were correct at the time of publishing.";
 
 
+/* terms are collapsible on a phone only; everywhere else they stay open */
+(function termsDisclosure(){
+  var wrap = $("#termsWrap");
+  if(!wrap){ return; }
+  var phone = window.matchMedia("(max-width: 700px)");
+  function sync(){ wrap.open = !phone.matches; }
+  sync();
+  if(phone.addEventListener){ phone.addEventListener("change", sync); }
+  else if(phone.addListener){ phone.addListener(sync); }
+})();
+
 /* ================================================================
    iPHONE PREVIEW - review tool for this mockup
    ================================================================ */
@@ -925,8 +942,9 @@ $("#legalTxt").textContent =
   var frame = $("#bgvid");
   if(!frame){ return; }
   var wide = window.matchMedia("(min-width: 861px)");
+  /* hold the poster over the player's spinner and title card before fading in */
   frame.addEventListener("load", function(){
-    setTimeout(function(){ frame.classList.add("ready"); }, 400);
+    setTimeout(function(){ frame.classList.add("ready"); }, 1800);
   });
   function apply(){
     if(reduced || !wide.matches){
@@ -946,35 +964,6 @@ $("#legalTxt").textContent =
   else if(wide.addListener){ wide.addListener(apply); }
 })();
 
-/* ---------- lightbox ---------- */
-(function lightbox(){
-  var lb = $("#lb"), fr = $("#lbFrame"), openBtn = $("#playBtn"), closeBtn = $("#lbClose");
-  function open(){
-    fr.src = "https://www.youtube-nocookie.com/embed/" + VIDEO_ID + "?autoplay=1&rel=0&playsinline=1";
-    lb.classList.add("on");
-    document.body.style.overflow = "hidden";
-    closeBtn.focus();
-  }
-  function close(){
-    lb.classList.remove("on");
-    fr.removeAttribute("src");
-    document.body.style.overflow = "";
-    openBtn.focus();
-  }
-  openBtn.addEventListener("click", open);
-  closeBtn.addEventListener("click", close);
-  lb.addEventListener("click", function(e){ if(e.target === lb){ close(); } });
-  document.addEventListener("keydown", function(e){
-    if(!lb.classList.contains("on")){ return; }
-    if(e.key === "Escape"){ close(); return; }
-    /* aria-modal alone does not stop Tab walking into the page behind, and the
-       only focusable control in here is the close button */
-    if(e.key === "Tab"){
-      e.preventDefault();
-      closeBtn.focus();
-    }
-  });
-})();
 
 /* ================================================================
    PRE-SELECT helpers - van cards and consult buttons
