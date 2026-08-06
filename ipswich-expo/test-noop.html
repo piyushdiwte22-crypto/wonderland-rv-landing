@@ -388,6 +388,104 @@ fieldset.bad .pick span{border-color:#B3401C}
 @media (max-width:860px){.devtoggle,.devwrap{display:none}}
 body.in-phone-preview .devtoggle{display:none}
 
+
+/* ============================ PHONE CAROUSELS ============================
+   Facts, programme and range become one swipeable row on a phone so the page
+   does not turn into a long scroll. Desktop grids are untouched.
+   ======================================================================== */
+@media (max-width:700px){
+  .swipe{
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;margin-inline:calc(var(--gut) * -1);
+    padding-inline:var(--gut);
+  }
+  .swipe::-webkit-scrollbar{display:none}
+  .swipe > *{
+    flex:0 0 78%;scroll-snap-align:start;
+    border-top:0 !important;border-left:0 !important;
+  }
+  .swipe > * + *{border-left:1px solid currentColor !important;opacity:1}
+  /* facts sit on ink, the other two on light */
+  .facts .swipe > * + *{border-left-color:rgba(255,255,255,.15) !important}
+  .prog.swipe > * + *,.vans.swipe > * + *{border-left-color:var(--line) !important}
+  .facts .swipe > *{padding:26px 22px 26px 0}
+  .prog.swipe > *{padding:22px 20px 26px 0}
+  .vans.swipe{gap:1px;background:transparent;border:0}
+  .vans.swipe > *{flex:0 0 82%;border:1px solid var(--line) !important;margin-right:12px}
+  .swipe-hint{
+    display:flex;align-items:center;gap:8px;margin-top:14px;
+    font-size:12px;letter-spacing:1px;font-weight:500;color:var(--label);
+  }
+  .facts .swipe-hint{color:rgba(255,255,255,.6)}
+  .swipe-hint span{width:22px;height:1px;background:currentColor;display:block}
+}
+@media (min-width:701px){.swipe-hint{display:none}}
+
+/* ============================ OVERVIEW VIDEO ============================ */
+.vid{margin-top:clamp(34px,5vw,52px);position:relative}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;background:#111;overflow:hidden}
+.vid-frame img{width:100%;height:100%;object-fit:cover}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid-play{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;
+  background:rgba(0,0,0,.28);border:0;cursor:pointer;color:#fff;
+  font-family:var(--display);font-weight:900;font-size:13px;letter-spacing:.6px;
+  transition:background-color .2s ease;
+}
+.vid-play:hover{background:rgba(0,0,0,.45)}
+.vid-play .tri{width:0;height:0;border-left:14px solid currentColor;border-top:9px solid transparent;border-bottom:9px solid transparent}
+.vid-cap{font-size:13px;color:var(--label);margin-top:10px}
+
+/* ============================ VAN PRICE ============================ */
+.van-price{
+  font-family:var(--sans);font-weight:500;font-size:15px;color:var(--ink);
+  margin:0 0 14px;padding-top:12px;border-top:1px solid var(--line);
+}
+.van-price small{display:block;font-weight:400;font-size:13px;color:var(--label);margin-top:2px}
+
+/* ============================ FORM WIZARD (phone) ============================ */
+.wiz,.wiz-nav{display:none}
+.wiz{align-items:center;gap:12px;margin-bottom:22px;font-size:13px;color:var(--label)}
+.wiz-step b{color:var(--ink);font-weight:500}
+.wiz-bars{display:flex;gap:5px;flex:1}
+.wiz-bars i{flex:1;height:3px;background:var(--line);display:block}
+.wiz-bars i.on{background:var(--orange)}
+.wiz-name{font-weight:500;color:var(--ink)}
+.wiz-nav{gap:10px;margin-top:24px}
+.wiz-nav .btn{flex:1}
+@media (max-width:700px){
+  .wiz{display:flex}
+  .wiz-nav{display:flex}
+  .step{display:none}
+  .step.on{display:block}
+  .card .btn-primary#submitBtn{display:none;margin-top:24px}
+  .card.on-last .btn-primary#submitBtn{display:flex}
+  .card.on-last #wizNext{display:none}
+}
+
+/* ============================ DRAW FITS ONE SCREEN ============================ */
+@media (min-width:901px){
+  .enter{
+    min-height:100svh;display:flex;align-items:center;
+    padding-top:clamp(28px,3.5vh,44px);padding-bottom:clamp(28px,3.5vh,44px);
+  }
+  .enter > .wrap{width:100%}
+  .enter .fld{margin-bottom:14px}
+  .enter .fld input,.enter .fld select{height:42px;font-size:16px}
+  .enter .fld label,.enter .leg{font-size:14px}
+  .enter fieldset{margin:12px 0 0}
+  .enter .card{padding:clamp(22px,2.2vw,30px)}
+  .enter .card h3{font-size:21px}
+  .enter .card-note{margin-bottom:16px}
+  .enter .card .btn-primary{margin-top:16px;padding:16px 30px;font-size:15px}
+  .enter .pick span{min-height:44px}
+  /* the terms are the tallest block, so set them in two columns */
+  .enter .terms{columns:2;column-gap:26px;font-size:11.5px;line-height:1.5;margin-top:8px}
+  .enter .terms-wrap{margin-top:14px}
+}
+
 /* mobile sticky bar */
 .bar{
   position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;
@@ -457,7 +555,7 @@ body.in-phone-preview .devtoggle{display:none}
 <!-- ============================ FACTS ============================ -->
 <section class="facts" aria-label="Event details">
   <div class="wrap">
-    <dl class="facts-grid">
+    <dl class="facts-grid swipe">
       <div class="fact">
         <dt>DATES</dt>
         <dd><strong>Friday 28 to Sunday 30 August 2026</strong>Three days at Willowbank.</dd>
@@ -475,6 +573,7 @@ body.in-phone-preview .devtoggle{display:none}
         <dd><strong>$16 adult online, $18 at the gate</strong>Under 18s free. Or go in our draw below.</dd>
       </div>
     </dl>
+    <p class="swipe-hint"><span aria-hidden="true"></span> SWIPE FOR MORE</p>
   </div>
 </section>
 
@@ -505,7 +604,7 @@ body.in-phone-preview .devtoggle{display:none}
       </div>
     </div>
 
-    <div class="prog">
+    <div class="prog swipe">
       <div class="prog-item">
         <span class="prog-num">01</span>
         <h3>Saturday night fireworks</h3>
@@ -532,6 +631,17 @@ body.in-phone-preview .devtoggle{display:none}
         <p class="sm-hide">Talking Towing on GVM, GCM, ATM, tare and towball mass.</p>
       </div>
     </div>
+    <p class="swipe-hint"><span aria-hidden="true"></span> SWIPE FOR MORE</p>
+
+    <div class="vid">
+      <div class="vid-frame" id="vidFrame">
+        <img src="assets/hero-poster.jpg" alt="" width="1280" height="720" loading="lazy">
+        <button class="vid-play" type="button" id="vidPlay">
+          <span class="tri" aria-hidden="true"></span> WATCH THE SHOW PROMO
+        </button>
+      </div>
+      <p class="vid-cap">The 2026 Let&rsquo;s Go Ipswich Caravan &amp; RV Expo promo, by Caravanning Queensland.</p>
+    </div>
   </div>
 </section>
 
@@ -551,10 +661,11 @@ body.in-phone-preview .devtoggle{display:none}
       </p>
     </div>
 
-    <div class="vans">
+    <div class="vans swipe">
       <article class="van">
         <div class="van-img"><img src="assets/van-xtr.webp" alt="Wonderland RV XTR off-road caravan, exterior" width="1350" height="788" loading="lazy"></div>
         <h3 class="van-name">XTR</h3>
+        <p class="van-price">Starting from $178,445.39<small>Built to order. Price as published on wonderlandrv.com.au.</small></p>
         <p>The flagship. Full off-grid, built to sit furthest from a powered site for longest.</p>
         <button class="btn btn-dark btn-sm" type="button" data-van="XTR">I&rsquo;M AFTER THE XTR</button>
       </article>
@@ -562,6 +673,7 @@ body.in-phone-preview .devtoggle{display:none}
       <article class="van">
         <div class="van-img"><img src="assets/van-solara.webp" alt="Wonderland RV Solara composite off-road caravan, exterior" width="1350" height="853" loading="lazy"></div>
         <h3 class="van-name">SOLARA</h3>
+        <p class="van-price">Starting from $156,263.15<small>Built to order. Price as published on wonderlandrv.com.au.</small></p>
         <p>Full composite off-roader, and the Caravan of the Year 2026 Judges&rsquo; Choice winner.</p>
         <button class="btn btn-dark btn-sm" type="button" data-van="Solara">I&rsquo;M AFTER THE SOLARA</button>
       </article>
@@ -569,6 +681,7 @@ body.in-phone-preview .devtoggle{display:none}
       <article class="van">
         <div class="van-img"><img src="assets/van-hornet.webp" alt="Wonderland RV Hornet off-road caravan, exterior" width="1350" height="733" loading="lazy"></div>
         <h3 class="van-name">HORNET</h3>
+        <p class="van-price">Starting from $138,560.84<small>Built to order. Price as published on wonderlandrv.com.au.</small></p>
         <p>Our best seller. A rugged off-grid tourer, and the one most families end up choosing.</p>
         <button class="btn btn-dark btn-sm" type="button" data-van="Hornet">I&rsquo;M AFTER THE HORNET</button>
       </article>
@@ -576,10 +689,12 @@ body.in-phone-preview .devtoggle{display:none}
       <article class="van">
         <div class="van-img"><img src="assets/van-amaroo.webp" alt="Wonderland RV Amaroo lightweight off-road caravan, exterior" width="1350" height="756" loading="lazy"></div>
         <h3 class="van-name">AMAROO</h3>
+        <p class="van-price">Starting from $117,393.13<small>Built to order. Price as published on wonderlandrv.com.au.</small></p>
         <p>Lightweight, and an affordable way into a full off-roader.</p>
         <button class="btn btn-dark btn-sm" type="button" data-van="Amaroo">I&rsquo;M AFTER THE AMAROO</button>
       </article>
     </div>
+    <p class="swipe-hint"><span aria-hidden="true"></span> SWIPE FOR MORE</p>
   </div>
 </section>
 
@@ -656,6 +771,13 @@ body.in-phone-preview .devtoggle{display:none}
             <!-- Ad Source. Carries budget, van and request, because form 47 has no fields for them. -->
             <input type="hidden" name="field[86]" id="adsrc" value="">
 
+            <div class="wiz" id="wiz">
+              <span class="wiz-step"><b id="wizNum">1</b> of 3</span>
+              <span class="wiz-bars"><i class="on"></i><i></i><i></i></span>
+              <span class="wiz-name" id="wizName">About you</span>
+            </div>
+
+            <div class="step on" data-step="1">
             <div class="grid2">
               <div class="fld" id="f-first">
                 <label for="firstname">First name <span class="req">*</span></label>
@@ -682,6 +804,9 @@ body.in-phone-preview .devtoggle{display:none}
               </div>
             </div>
 
+            </div><!-- /step 1 -->
+
+            <div class="step" data-step="2">
             <div class="grid2">
               <div class="fld" id="f-state">
                 <label for="state">State <span class="req">*</span></label>
@@ -723,6 +848,9 @@ body.in-phone-preview .devtoggle{display:none}
               </select>
             </div>
 
+            </div><!-- /step 2 -->
+
+            <div class="step" data-step="3">
             <fieldset id="f-want">
               <legend class="leg">What can we sort for you? <span class="req">*</span></legend>
               <div class="picks">
@@ -741,6 +869,12 @@ body.in-phone-preview .devtoggle{display:none}
               </div>
               <span class="err" id="err-want" role="alert">Please choose one.</span>
             </fieldset>
+            </div><!-- /step 3 -->
+
+            <div class="wiz-nav" id="wizNav">
+              <button class="btn btn-dark btn-sm" type="button" id="wizBack">BACK</button>
+              <button class="btn btn-primary btn-sm" type="button" id="wizNext">NEXT</button>
+            </div>
 
             <button class="btn btn-primary" type="submit" id="submitBtn">ENTER THE DRAW</button>
 
@@ -889,6 +1023,93 @@ $("#legalTxt").textContent =
   "The ticket draw on this page is run by Wonderland RV and is separate from any prize or draw run by the expo. " +
   "Event times, program and ticket prices are set by the organiser and were correct at the time of publishing.";
 
+
+
+/* ================================================================
+   OVERVIEW VIDEO - click to play inline, sound on
+   ================================================================ */
+(function overviewVideo(){
+  var btn = $("#vidPlay"), frame = $("#vidFrame");
+  if(!btn || !frame){ return; }
+  btn.addEventListener("click", function(){
+    var ifr = document.createElement("iframe");
+    ifr.title = "2026 Let\u2019s Go Ipswich Caravan and RV Expo promo";
+    ifr.allow = "autoplay; encrypted-media; fullscreen";
+    ifr.allowFullscreen = true;
+    ifr.src = "https://www.youtube-nocookie.com/embed/" + VIDEO_ID + "?autoplay=1&rel=0&playsinline=1";
+    frame.appendChild(ifr);
+    btn.remove();
+  });
+})();
+
+/* ================================================================
+   FORM WIZARD - phone only. Desktop shows all steps at once.
+   ================================================================ */
+(function wizard(){
+  var card = $(".card"), steps = $$(".step"), nav = $("#wizNav");
+  if(!card || !steps.length){ return; }
+  var phone = window.matchMedia("(max-width: 700px)");
+  var at = 1;
+  var NAMES = {1:"About you", 2:"Your caravan", 3:"What you need"};
+  var STEP_FIELDS = {
+    1:["f-first","f-last","f-email","f-phone"],
+    2:["f-state","f-budget"],
+    3:["f-want"]
+  };
+
+  function show(i){
+    at = i;
+    steps.forEach(function(st){
+      st.classList.toggle("on", +st.getAttribute("data-step") === i);
+    });
+    $("#wizNum").textContent = i;
+    $("#wizName").textContent = NAMES[i];
+    $$(".wiz-bars i").forEach(function(bar, idx){
+      bar.classList.toggle("on", idx < i);
+    });
+    $("#wizBack").style.visibility = i === 1 ? "hidden" : "visible";
+    card.classList.toggle("on-last", i === steps.length);
+  }
+
+  function stepValid(i){
+    var ok = true, first = null;
+    STEP_FIELDS[i].forEach(function(id){
+      var good = RULES[id]();
+      mark(id, !good);
+      if(!good && !first){ first = id; }
+    });
+    if(first){
+      var focusable = document.getElementById(first).querySelector("input,select");
+      if(focusable){ focusable.focus({ preventScroll: true }); }
+      ok = false;
+    }
+    return ok;
+  }
+
+  $("#wizNext").addEventListener("click", function(){
+    if(!stepValid(at)){ return; }
+    if(at < steps.length){
+      show(at + 1);
+      card.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    }
+  });
+  $("#wizBack").addEventListener("click", function(){
+    if(at > 1){ show(at - 1); }
+  });
+
+  function sync(){
+    if(phone.matches){
+      show(at);
+    } else {
+      /* desktop: every step visible, wizard chrome hidden by CSS */
+      steps.forEach(function(st){ st.classList.add("on"); });
+      card.classList.remove("on-last");
+    }
+  }
+  sync();
+  if(phone.addEventListener){ phone.addEventListener("change", function(){ at = 1; sync(); }); }
+  else if(phone.addListener){ phone.addListener(function(){ at = 1; sync(); }); }
+})();
 
 /* terms are collapsible on a phone only; everywhere else they stay open */
 (function termsDisclosure(){
