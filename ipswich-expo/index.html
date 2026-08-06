@@ -113,25 +113,17 @@ p:last-child{margin-bottom:0}
 /* ============================ HERO ============================ */
 .hero{position:relative;min-height:clamp(560px,92svh,900px);display:flex;align-items:flex-end;overflow:hidden;background:#111}
 .hero-media{position:absolute;inset:0;overflow:hidden}
-/* The promo carries burned-in typography of its own. Blur is what kills that,
-   not darkness, so lean on blur and keep the footage bright enough to read as
-   a busy outdoor event. Scale covers the soft edge the blur leaves. */
+/* Footage runs clean: no blur, and a single flat 10% black layer over it. */
 .hero-poster{
   position:absolute;inset:0;background:#111 url(assets/hero-poster.jpg) center/cover no-repeat;
-  transform:scale(1.16);filter:blur(10px) saturate(.95) brightness(.98);
 }
 .hero-video{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.12);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:100vw;height:56.25vw;min-height:100%;min-width:177.78vh;border:0;pointer-events:none;
-  opacity:0;transition:opacity .9s ease;filter:blur(10px) saturate(.95) brightness(.98);
+  opacity:0;transition:opacity .9s ease;
 }
 .hero-video.ready{opacity:1}
-.hero-scrim{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(180deg,rgba(15,13,12,.6) 0%,rgba(15,13,12,.3) 34%,rgba(15,13,12,.68) 72%,rgba(15,13,12,.9) 100%),
-    linear-gradient(90deg,rgba(15,13,12,.58) 0%,rgba(15,13,12,0) 68%);
-}
+.hero-scrim{position:absolute;inset:0;background:rgba(0,0,0,.1)}
 .hero .wrap{position:relative;z-index:2;padding-top:clamp(90px,14vh,150px);padding-bottom:clamp(38px,6vh,64px)}
 .hero-inner{max-width:760px}
 .hero h1{color:#fff;margin-bottom:22px}
@@ -188,30 +180,30 @@ p:last-child{margin-bottom:0}
 }
 
 /* ============================ NIGHT ============================ */
-.night{background:var(--ink);color:rgba(255,255,255,.82);border-top:1px solid rgba(255,255,255,.15)}
-.night h2{color:#fff;max-width:20ch;margin-bottom:26px}
+.night{background:#fff;color:var(--body)}
+.night h2{color:var(--ink);max-width:20ch;margin-bottom:26px}
 .night-lead{max-width:60ch;font-size:clamp(17px,1.5vw,19px);line-height:1.6}
 .night-head{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,72px);align-items:start;margin-bottom:clamp(40px,6vw,64px)}
 @media (max-width:860px){.night-head{grid-template-columns:1fr;gap:22px}}
-.prog{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.2)}
-.prog-item{padding:26px 22px 30px;border-left:1px solid rgba(255,255,255,.2)}
+.prog{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
+.prog-item{padding:26px 22px 30px;border-left:1px solid var(--line)}
 .prog-item:first-child{border-left:0;padding-left:0}
 .prog-num{
   font-family:var(--display);font-weight:900;font-size:13px;color:var(--orange);
   display:block;margin-bottom:14px;letter-spacing:.6px;
 }
-.prog-item h3{color:#fff;font-size:20px;margin-bottom:8px;min-height:50px}
-.prog-item p{font-size:15px;line-height:1.5;color:rgba(255,255,255,.66)}
+.prog-item h3{color:var(--ink);font-size:20px;margin-bottom:8px;min-height:50px}
+.prog-item p{font-size:15px;line-height:1.5;color:var(--body)}
 @media (max-width:1080px){
   .prog-item h3{min-height:0}
   .prog{grid-template-columns:repeat(2,1fr)}
-  .prog-item{border-top:1px solid rgba(255,255,255,.2)}
+  .prog-item{border-top:1px solid var(--line)}
   .prog-item:nth-child(-n+2){border-top:0}
   .prog-item:nth-child(odd){border-left:0;padding-left:0}
 }
 @media (max-width:560px){
   .prog{grid-template-columns:1fr}
-  .prog-item{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.2)}
+  .prog-item{border-left:0;padding-left:0;border-top:1px solid var(--line)}
   .prog-item:first-child{border-top:0}
 }
 
@@ -356,6 +348,43 @@ fieldset.bad .pick span{border-color:#B3401C}
 .ftr a{text-decoration:none}
 .ftr a:hover{color:var(--orange)}
 .ftr-legal{margin-top:clamp(34px,5vw,52px);padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.6;color:#6A6560}
+
+
+/* ============================ iPHONE PREVIEW ============================
+   Review tool for this mockup, not part of the page design. Hidden inside
+   the preview iframe itself (?view=phone) and on real phones.
+   ======================================================================== */
+.devtoggle{
+  position:fixed;right:18px;bottom:18px;z-index:150;
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--ink);color:#fff;border:0;border-radius:0;cursor:pointer;
+  font-family:var(--display);font-weight:900;font-size:12px;letter-spacing:.6px;
+  padding:14px 18px;
+}
+.devtoggle:hover{background:var(--orange)}
+.devtoggle svg{width:13px;height:19px;flex:0 0 auto}
+.devwrap{
+  position:fixed;inset:0;z-index:400;background:rgba(18,15,13,.93);
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;
+}
+.devwrap.on{display:flex}
+.devbar{
+  display:flex;align-items:center;gap:18px;color:#fff;
+  font-family:var(--sans);font-weight:500;font-size:13px;letter-spacing:.6px;
+}
+.devbar button{
+  background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:0;
+  font-family:var(--display);font-weight:900;font-size:11px;letter-spacing:.6px;
+  padding:9px 15px;cursor:pointer;
+}
+.devbar button:hover{background:#fff;color:var(--ink)}
+.phone{
+  width:414px;height:868px;max-height:calc(100vh - 110px);
+  background:#111;padding:12px;flex:0 0 auto;
+}
+.phone iframe{width:100%;height:100%;border:0;background:#fff}
+@media (max-width:860px){.devtoggle,.devwrap{display:none}}
+body.in-phone-preview .devtoggle{display:none}
 
 /* mobile sticky bar */
 .bar{
@@ -770,6 +799,23 @@ fieldset.bad .pick span{border-color:#B3401C}
   </div>
 </div>
 
+
+<button class="devtoggle" id="devToggle" type="button" aria-label="Preview this page at iPhone size">
+  <svg viewBox="0 0 13 19" fill="none" aria-hidden="true">
+    <rect x="0.6" y="0.6" width="11.8" height="17.8" rx="2" stroke="currentColor" stroke-width="1.2"/>
+    <rect x="4.6" y="2.4" width="3.8" height="1" fill="currentColor"/>
+  </svg>
+  iPHONE VIEW
+</button>
+
+<div class="devwrap" id="devWrap" role="dialog" aria-modal="true" aria-label="iPhone preview">
+  <div class="devbar">
+    <span>iPhone width &middot; 390px &middot; height fits your window</span>
+    <button type="button" id="devClose">CLOSE</button>
+  </div>
+  <div class="phone"><iframe id="devFrame" title="This page previewed at iPhone width"></iframe></div>
+</div>
+
 <canvas id="confetti" aria-hidden="true"></canvas>
 <iframe name="ac_sink" id="ac_sink" style="display:none" title="Form submission target" aria-hidden="true"></iframe>
 
@@ -836,6 +882,40 @@ $("#legalTxt").textContent =
   "Willowbank Raceway, 38 Champions Way, Willowbank QLD. The expo is run by Caravanning Queensland. " +
   "The ticket draw on this page is run by Wonderland RV and is separate from any prize or draw run by the expo. " +
   "Event times, program and ticket prices are set by the organiser and were correct at the time of publishing.";
+
+
+/* ================================================================
+   iPHONE PREVIEW - review tool for this mockup
+   ================================================================ */
+(function phonePreview(){
+  var inPreview = new URLSearchParams(window.location.search).get("view") === "phone";
+  if(inPreview){ document.body.classList.add("in-phone-preview"); return; }
+
+  var toggle = $("#devToggle"), wrap = $("#devWrap"),
+      frame = $("#devFrame"), closeBtn = $("#devClose");
+  if(!toggle){ return; }
+
+  function open(){
+    frame.src = window.location.pathname + "?view=phone";
+    wrap.classList.add("on");
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
+  }
+  function close(){
+    wrap.classList.remove("on");
+    frame.removeAttribute("src");
+    document.body.style.overflow = "";
+    toggle.focus();
+  }
+  toggle.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  wrap.addEventListener("click", function(e){ if(e.target === wrap){ close(); } });
+  document.addEventListener("keydown", function(e){
+    if(!wrap.classList.contains("on")){ return; }
+    if(e.key === "Escape"){ close(); return; }
+    if(e.key === "Tab"){ e.preventDefault(); closeBtn.focus(); }
+  });
+})();
 
 /* ================================================================
    HERO BACKGROUND VIDEO

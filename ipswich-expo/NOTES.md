@@ -65,10 +65,10 @@ the contact up afterwards.
 
 - Meta Pixel and Google Ads conversion IDs. The hooks are in place and guarded, so they no-op until the base
   snippets are added. Same as the WL1066 landing page, still the highest-impact remaining task.
-- The hero video is Caravanning Queensland's own show promo (`XYQm7BmRkF8`), embedded from YouTube. It has
-  burned-in titles of its own, so it is blurred to sit behind the headline as texture. If Wonderland RV
-  footage from the stand is preferred later, swap `VIDEO_ID` and drop the blur in `.hero-poster` /
-  `.hero-video`.
+- The hero video is Caravanning Queensland's own show promo (`XYQm7BmRkF8`), embedded from YouTube. See
+  "Hero treatment" below. Wonderland RV footage shot at the stand would solve the burned-in-titles problem
+  outright, since the clash is with the promo's own graphics, not with the video idea. Swap `VIDEO_ID` and
+  re-shoot the poster frame if that footage turns up.
 - Fonts: Aviano is the Adobe Typekit kit `ywn7byg`, loaded from the network. Gordita is self-hosted in
   `assets/fonts/`. If the kit is ever domain-locked, headings fall back to Arial Narrow.
 
@@ -81,3 +81,17 @@ the contact up afterwards.
 | `BRIEF.md` | the brief, including every verified event fact and its source |
 | `test-noop.html` | UI testing copy, form posts nowhere |
 | `qc-desktop.html` | screenshot helper, pins the hero height for tall captures |
+
+## Reviewing it on desktop
+
+There is an **iPHONE VIEW** button in the bottom-right corner. It opens the same page inside a 390px
+frame so you can check the phone layout without leaving your desktop. It hides itself inside the preview,
+and it does not appear on real phones. It is a review tool, so strip the `.devtoggle` / `.devwrap` block
+if this page is ever handed to a client as-is.
+
+## Hero treatment
+
+The footage runs unfiltered with a flat 10% black layer over it, as requested. Note that the show promo
+carries its own burned-in titles, so words like "& MORE ENTERTAINMENT" sit behind the headline for parts
+of the loop, and the white eyebrow and body copy drop below WCAG AA contrast over the brighter frames.
+Both are in `.hero-scrim` and `.hero-poster` / `.hero-video` if the treatment needs revisiting.
