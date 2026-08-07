@@ -21,6 +21,7 @@ The configurator's interaction logic is entirely client-side (no AJAX calls anyw
 | Not working | Why |
 |---|---|
 | Form submission | Blocked deliberately. The action is neutered and a global handler cancels every submit. |
+| Page nav (natively) | Gravity Forms normally does a server round-trip to change page. `staging-shim.js` replaces that by toggling the 14 page divs client-side, so Next/Previous work here. |
 | CSV import / admin pages | Those are PHP + MySQL. GitHub Pages is static only. |
 | Saving a build | Needs the WordPress backend. |
 
@@ -40,6 +41,7 @@ The page is also `noindex,nofollow`.
 | `data.js` | **yes** | The four data blobs — edit to test different pricing or layouts |
 | `data.json` | reference | Same data, as JSON |
 | `form.html` | reference | The Gravity Form markup on its own |
+| `staging-shim.js` | sandbox only | Makes Next/Previous work without a server. **Not on the live site.** |
 
 Everything else (jQuery, Gravity Forms, theme CSS, images) loads from the live site, so the sandbox
 stays small and looks identical. That does mean **you need to be online**, and if the agency
@@ -50,6 +52,8 @@ redeploys, those shared parts change here too.
 1. Edit `configurator-script.js`, `configurator-stylesheet.css`, or `data.js`
 2. Commit and push
 3. Wait ~1 minute for GitHub Pages, then hard-refresh the sandbox URL
+
+Jump straight to a step from the browser console: `wlStep(7)`.
 
 To run it locally instead: `python3 -m http.server 8000` in this folder, then open
 `http://localhost:8000`. Opening `index.html` directly with `file://` will not work.
