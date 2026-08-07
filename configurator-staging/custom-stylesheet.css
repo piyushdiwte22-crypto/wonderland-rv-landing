@@ -1,0 +1,244 @@
+body {
+    font-kerning: none;
+}
+
+span.jet-filters-counter {
+    display: none !important;
+}
+
+._form-content {
+    display: flex;
+    flex-flow: wrap;
+}
+
+._form-content ._form_element {
+    width: 50%;
+    padding: 0 15px;
+}
+
+.dialog-widget-content ._form_element {
+    padding: 0;
+}
+
+._form-content ._form_element > label {
+    margin: 18px 0 12px;
+    line-height: 1;
+    font-size: 16px;
+    font-weight: 400;
+    color: #565656;
+}
+
+._form-content input[type=text] {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #000;
+    border-radius: 0;
+    padding: 0;
+    height: 62px;
+    outline: none;
+}
+
+._row._checkbox-radio {
+    margin: 8px 0;
+}
+._row._checkbox-radio label {
+    font-size: 16px;
+    color: #565656;
+}
+
+._form-content select {
+    font-size: 16px;
+    color: #565656;
+    padding: 8px;
+    border-radius: 0;
+    margin-bottom: 8px;
+}
+
+._form-content textarea {
+    border-radius: 0;
+    height: 130px;
+    background: transparent;
+    outline: none;
+}
+
+._form-content fieldset._form-fieldset {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+._form-content ._row._checkbox-radio {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1;
+}
+
+._form-content ._row._checkbox-radio input {
+    margin-right: 12px;
+    margin-top: 5px;
+}
+
+._form-content ._button-wrapper._full_width {
+    width: 100%;
+    padding: 0 15px;
+}
+
+._form-content button[type=submit] {
+    color: #fff;
+    width: 120px;
+    height: 62px;
+    border: none;
+    border-radius: 0;
+    background: #db7627;
+}
+
+._form-content button[type=submit]:hover {
+    background-color: #764c36;
+}
+
+.contact-page-form ._form-content ._form_element:nth-child(1),
+.contact-page-form ._form-content ._form_element:nth-child(4),
+.contact-page-form ._form-content ._form_element:nth-child(5),
+.contact-page-form ._form-content ._form_element:nth-child(6),
+.contact-page-form ._form-content ._form_element:nth-child(7),
+.contact-page-form ._form-content ._form_element:nth-child(8) {
+    width: 100%;
+}
+.vc-hp-form ._form-content ._form_element:nth-child(5),
+.vc-hp-form ._form-content ._form_element:nth-child(6),
+.vc-hp-form ._form-content ._form_element:nth-child(7),
+.vc-hp-form ._form-content ._form_element:nth-child(8),
+.vc-hp-form ._form-content ._form_element:nth-child(9) {
+    width: 100%;
+}
+
+.single-post .elementor-widget-container b,
+.single-post .elementor-widget-container strong {
+    font-weight: 500;
+}
+
+.postid-7366 .dialog-widget-content ._form-content ._form_element {
+    width: 100%;
+}
+
+.betterdocs-category-box-folder-wrapper.el-layout-4 .betterdocs-categories-folder.layout-4 .category-box.no-border-bottom {
+    border-bottom: 1px solid #eaecf0 !important;
+}
+
+.betterdocs-category-box-folder-wrapper.el-layout-4 .betterdocs-categories-folder.layout-4 .category-box .betterdocs-single-category-inner .betterdocs-category-header-inner .betterdocs-folder-icon {
+    background: transparent !important;
+}
+
+@media only screen and (max-width: 991px) {
+    .betterdocs-mobile-nav {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .contact-page-form ._form-content ._form_element,
+    .vc-hp-form ._form-content ._form_element {
+        width: 100% !important;
+    }
+    .elementor-popup-modal .dialog-widget-content {
+        background: #fff !important;
+    }
+    .betterdocs-heading-banner h1 {
+        font-size: 1.5rem;
+    }
+    .betterdocs-category-title {
+        font-size: 1.1rem !important;
+    }
+    .betterdocs-sub-category-items-counts {
+        font-size: 0.9rem !important;
+    }
+    .betterdocs-category-box-folder-wrapper.el-layout-4 .betterdocs-categories-folder.docs-col-3, 
+    .betterdocs-category-box-folder-wrapper.el-layout-4 .betterdocs-categories-folder.docs-col-4 {
+        grid-template-columns: repeat(1,1fr) !important;
+    }
+}
+
+/* RANGE PAGE REMOVING DESCRIPTORS -TABS COLOUR PALETTES */
+
+/* ADVENTUS */
+.page-id-9302 div[data-id="3ee405b6"] .elementor-widget-text-editor,
+.page-id-9302 div[data-id="f182531"] .elementor-widget-text-editor,
+.page-id-9302 div[data-id="f12de7c"] .elementor-widget-text-editor,
+.page-id-9302 div[data-id="67231495"] .elementor-widget-text-editor,
+.page-id-9302 div[data-id="77f0ebd9"] .elementor-widget-text-editor {
+    display: none;
+}
+
+/* AMAROO */
+.page-id-9303 div[data-id="3ee405b6"] .elementor-widget-text-editor,
+.page-id-9303 div[data-id="f182531"] .elementor-widget-text-editor,
+.page-id-9303 div[data-id="f12de7c"] .elementor-widget-text-editor,
+.page-id-9303 div[data-id="67231495"] .elementor-widget-text-editor,
+.page-id-9303 div[data-id="77f0ebd9"] .elementor-widget-text-editor {
+    display: none;
+}
+
+/* HORNET */
+.page-id-9304 div[data-id="3ee405b6"] .elementor-widget-text-editor,
+.page-id-9304 div[data-id="f182531"] .elementor-widget-text-editor,
+.page-id-9304 div[data-id="f12de7c"] .elementor-widget-text-editor,
+.page-id-9304 div[data-id="67231495"] .elementor-widget-text-editor,
+.page-id-9304 div[data-id="77f0ebd9"] .elementor-widget-text-editor {
+    display: none;
+}
+
+/* RANGE PAGE SLIDER ARROW MOBILE */
+
+@media only screen and (max-width: 991px) {
+    .page-id-9260 div[data-id="2184ed69"],
+    .page-id-9302 div[data-id="2184ed69"],
+    .page-id-9303 div[data-id="2184ed69"],
+    .page-id-9304 div[data-id="2184ed69"] {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+    .page-id-9260 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button,
+    .page-id-9302 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button,
+    .page-id-9303 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button,
+    .page-id-9304 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button {
+        margin-top: 20px;
+        position: relative;
+    }
+    .page-id-9260 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev,
+    .page-id-9302 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev,
+    .page-id-9303 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev,
+    .page-id-9304 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev {
+        left: 0;
+    }
+    .page-id-9260 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next,
+    .page-id-9302 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next,
+    .page-id-9303 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next,
+    .page-id-9304 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next {
+        right: 0;
+    }
+    .page-id-9260 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev,
+    .page-id-9260 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next,
+    .page-id-9302 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev,
+    .page-id-9302 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next,
+    .page-id-9303 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev,
+    .page-id-9303 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next,
+    .page-id-9304 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev,
+    .page-id-9304 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next {
+        background: #DB7627;
+        padding: 10px;
+    }
+    .page-id-9260 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev svg > path,
+    .page-id-9260 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next svg > g > path,
+    .page-id-9302 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev svg > path,
+    .page-id-9302 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next svg > g > path,
+    .page-id-9303 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev svg > path,
+    .page-id-9303 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next svg > g > path,
+    .page-id-9304 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-prev svg > path,
+    .page-id-9304 div[data-id="2184ed69"] .elementor-element .swiper .elementor-swiper-button-next svg > g > path {
+        fill: #fff;
+    }
+}
+
+.swiper-fade .swiper-slide {
+    pointer-events: unset !important;
+}
